@@ -10,57 +10,57 @@
     </head>
 
     <body>
-        <header>
-            <nav>
-                <img src="../images/html-css-js.jpg" alt="Logo of html, css and javascript">
-                <ul>
-                    <li><a class="link nav-link" href="../index.html">Home</a></li>
-                    <li><a class="link nav-link" href="./html.html">HTML</a></li>
-                    <li><a class="link nav-link" href="./css.html">CSS</a></li>
-                    <li><a class="link nav-link" href="./javascript.html">JavaScript</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h1 class="title">Introduction to CSS</h1>
-            <div class="container introduction">
-                <p>
-                    CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of a document written in HTML. While HTML provides the structure and content of a web page, CSS controls its appearance, layout, and visual formatting.
-                </p>
-                <h2 class="subtitle">CSS Basics</h2>
-                <h3 class="subtitle">How CSS works</h3>
-                <p>CSS works by selecting HTML elements and applying styles to them:</p>
-                <pre><code>
+        <div class="page-wrapper">
+            <header>
+                <nav>
+                    <img src="../images/html-css-js.jpg" alt="Logo of html, css and javascript">
+                    <ul>
+                        <li><a class="link nav-link" href="../index.html">Home</a></li>
+                        <li><a class="link nav-link" href="./html.html">HTML</a></li>
+                        <li><a class="link nav-link" href="./css.html">CSS</a></li>
+                        <li><a class="link nav-link" href="./javascript.html">JavaScript</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <h1 class="title">Introduction to CSS</h1>
+                <div class="container introduction">
+                    <p>
+                        CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of a document written in HTML. While HTML provides the structure and content of a web page, CSS controls its appearance, layout, and visual formatting.
+                    </p>
+                    <h2 class="subtitle">CSS Basics</h2>
+                    <h3 class="subtitle">How CSS works</h3>
+                    <p>CSS works by selecting HTML elements and applying styles to them:</p>
+                    <pre><code>
     selector {
         property: value;
         property: value;
     }
-                </code></pre>
-                <ul>
-                    <li>Selector: Targets the HTML element(s) to style</li>
-                    <li>Property: The aspect you want to change (color, font, size, etc.)</li>
-                    <li>Value: The specific setting for the property</li>
-                    <li>Declaration: A property-value pair</li>
-                    <li>Declaration block: All declarations inside the curly braces</li>
-                </ul>
-                <p>Example:</p>
-                <pre><code>
+                    </code></pre>
+                    <ul>
+                        <li>Selector: Targets the HTML element(s) to style</li>
+                        <li>Property: The aspect you want to change (color, font, size, etc.)</li>
+                        <li>Value: The specific setting for the property</li>
+                        <li>Declaration: A property-value pair</li>
+                        <li>Declaration block: All declarations inside the curly braces</li>
+                    </ul>
+                    <p>Example:</p>
+                    <pre><code>
     p {
         color: blue;
         font-size: 16px;
     }
-                </code></pre>
-                <p>This makes all paragraph text blue and 16 pixels in size.</p>
-                <h3 class="subtitle">Adding CSS to HTML</h3>
-                <p>There are three ways to include CSS in your HTML document:</p>
-                <h4>1. Inline CSS</h4>
-                <p>Applied directly to an element using the style attribute:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>This makes all paragraph text blue and 16 pixels in size.</p>
+                    <h3 class="subtitle">Adding CSS to HTML</h3>
+                    <p>There are three ways to include CSS in your HTML document:</p>
+                    <p>Applied directly to an element using the style attribute:</p>
+                    <pre><code>
     &lt;p style="color: blue; font-size: 16px;"&gt;This is blue text.&lt;/p&gt;
-                </code></pre>
-                <h4>2. Internal CSS</h4>
-                <p>Placed in the `&lt;head&gt;` section of an HTML document inside &lt;style&gt;` tags:</p>
-                <pre><code>
+                    </code></pre>
+                    <h4>2. Internal CSS</h4>
+                    <p>Placed in the `&lt;head&gt;` section of an HTML document inside &lt;style&gt;` tags:</p>
+                    <pre><code>
     &lt;head&gt;
         &lt;style&gt;
             p {
@@ -69,32 +69,32 @@
             }
         &lt;/style&gt;
     &lt;/head&gt;
-                </code></pre>
-                <h4>3. External CSS (Recommended)</h4>
-                <p>Stored in a separate `.css` file and linked to the HTML document:</p>
-                <pre><code>
+                    </code></pre>
+                    <h4>3. External CSS (Recommended)</h4>
+                    <p>Stored in a separate `.css` file and linked to the HTML document:</p>
+                    <pre><code>
     &lt;head&gt;
         &lt;link rel="stylesheet" href="styles.css"&gt;
     &lt;/head&gt;
-                </code></pre>
-                <p>Where `styles.css` might contain:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Where `styles.css` might contain:</p>
+                    <pre><code>
     p {
         color: blue;
         font-size: 16px;
     }
-                </code></pre>
-                <p>External CSS is preferred because it:</p>
-                <ul>
-                    <li>Separates content from presentation</li>
-                    <li>Improves maintainability</li>
-                    <li>Allows one stylesheet to control multiple pages</li>
-                    <li>Takes advantage of browser caching</li>
-                </ul>
-                <h2 class="subtitle">CSS Selectors</h2>
-                <p>Selectors determine which elements will be styled.</p>
-                <h3 class="subtitle">Basic Selectors</h3>
-                <pre><code>
+                    </code></pre>
+                    <p>External CSS is preferred because it:</p>
+                    <ul>
+                        <li>Separates content from presentation</li>
+                        <li>Improves maintainability</li>
+                        <li>Allows one stylesheet to control multiple pages</li>
+                        <li>Takes advantage of browser caching</li>
+                    </ul>
+                    <h2 class="subtitle">CSS Selectors</h2>
+                    <p>Selectors determine which elements will be styled.</p>
+                    <h3 class="subtitle">Basic Selectors</h3>
+                    <pre><code>
     /* Element selector */
     p {
         color: blue;
@@ -115,9 +115,9 @@
         margin: 0;
         padding: 0;
     }
-                </code></pre>
-                <h3 class="subtitle">Combinators</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Combinators</h3>
+                    <pre><code>
     /* Descendant selector (spaces) */
     article p {
         font-style: italic;
@@ -137,9 +137,9 @@
     h2 ~ p {
         color: gray;
     }
-                </code></pre>
-                <h3 class="subtitle">Attribute Selectors</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Attribute Selectors</h3>
+                    <pre><code>
     /* Elements with specific attribute */
     input[type="text"] {
         border: 1px solid gray;
@@ -159,10 +159,10 @@
     a[href$=".pdf"] {
         background-image: url('pdf-icon.png');
     }
-                </code></pre>
-                <h3 class="subtitle">Pseudo-classes and Pseudo-elements</h3>
-                <p>Pseudo-classes select elements based on state or position:</p>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Pseudo-classes and Pseudo-elements</h3>
+                    <p>Pseudo-classes select elements based on state or position:</p>
+                    <pre><code>
     /* Link states */
     a:link { color: blue; }
     a:visited { color: purple; }
@@ -173,9 +173,9 @@
     li:first-child { font-weight: bold; }
     li:last-child { border-bottom: none; }
     li:nth-child(odd) { background-color: #f2f2f2; }                    
-                </code></pre>
-                <p>Pseudo-elements target specific parts of elements:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Pseudo-elements target specific parts of elements:</p>
+                    <pre><code>
     /* First letter/line */
     p::first-letter { font-size: 200%; }
     p::first-line { font-variant: small-caps; }
@@ -186,10 +186,10 @@
     
     /* Selection highlighting */
     ::selection { background-color: yellow; }
-                </code></pre>
-                <h2 class="subtitle">CSS Properties</h2>
-                <h3 class="subtitle">Text Styling</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">CSS Properties</h2>
+                    <h3 class="subtitle">Text Styling</h3>
+                    <pre><code>
     p {
         color: #333333;              /* Text color */
         font-family: Arial, sans-serif; /* Font family */
@@ -203,10 +203,10 @@
         letter-spacing: 1px;         /* Space between letters */
         word-spacing: 2px;           /* Space between words */
     }
-                </code></pre>
-                <h3 class="subtitle">Box Model</h3>
-                <p>Every element in CSS is represented as a rectangular box:</p>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Box Model</h3>
+                    <p>Every element in CSS is represented as a rectangular box:</p>
+                    <pre><code>
     div {
         width: 300px;             /* Content width */
         height: 200px;            /* Content height */
@@ -220,16 +220,16 @@
         border-bottom: 1px dashed gray;
         margin-left: 15px;
     }                    
-                </code></pre>
-                <p>Box sizing property changes how width and height are calculated:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Box sizing property changes how width and height are calculated:</p>
+                    <pre><code>
     * {
         box-sizing: border-box;  /* Width/height includes padding and border */
     }
-                </code></pre>
-                <p>This box-sizing: border-box declaration is commonly added to universal selectors in modern CSS resets as it creates more predictable layouts. With this setting, the specified width and height of an element include the padding and border, not just the content area.</p>
-                <h3 class="subtitle">Background Properties</h3>
-                <pre><code>
+                    </code></pre>
+                    <p>This box-sizing: border-box declaration is commonly added to universal selectors in modern CSS resets as it creates more predictable layouts. With this setting, the specified width and height of an element include the padding and border, not just the content area.</p>
+                    <h3 class="subtitle">Background Properties</h3>
+                    <pre><code>
     div {
         background-color: #f0f0f0;
         background-image: url('image.jpg');
@@ -241,9 +241,9 @@
         /* Shorthand */
         background: #f0f0f0 url('image.jpg') no-repeat center/cover fixed;
     }                    
-                </code></pre>
-                <h3 class="subtitle">Display and Positioning</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Display and Positioning</h3>
+                    <pre><code>
     /* Display property */
     div {
         display: block;         /* block, inline, inline-block, flex, grid, none */
@@ -264,10 +264,10 @@
         float: left;            /* left, right, none */
         clear: both;            /* left, right, both, none */
     }
-                </code></pre>
-                <h2 class="subtitle">Flexbox</h2>
-                <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns:</p>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Flexbox</h2>
+                    <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns:</p>
+                    <pre><code>
     /* Container */
     .flex-container {
         display: flex;
@@ -290,10 +290,10 @@
         align-self: flex-end;       /* Override align-items for specific item */
         order: 2;                   /* Control order of items */
     }                    
-                </code></pre>
-                <h2 class="subtitle">CSS Grid</h2>
-                <p>Grid is a two-dimensional layout system for complex layouts:</p>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">CSS Grid</h2>
+                    <p>Grid is a two-dimensional layout system for complex layouts:</p>
+                    <pre><code>
     /* Container */
     .grid-container {
         display: grid;
@@ -319,11 +319,11 @@
         grid-column: 1 / 3;      /* Start at line 1, end at line 3 */
         grid-row: 2 / 4;         /* Start at line 2, end at line 4 */
     }
-                </code></pre>
-                <h2 class="subtitle">Responsive Design</h2>
-                <p>Responsive design ensures your website looks good on all devices.</p>
-                <h3 class="subtitle">Media Queries</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Responsive Design</h2>
+                    <p>Responsive design ensures your website looks good on all devices.</p>
+                    <h3 class="subtitle">Media Queries</h3>
+                    <pre><code>
     /* Apply styles only for screens with max width of 768px */
     @media screen and (max-width: 768px) {
         body {
@@ -342,9 +342,9 @@
             margin: 0 auto;
         }
     }
-                </code></pre>
-                <p>Mobile-First Approach: Start designing for mobile devices first, then progressively enhance for larger screens. This approach is more efficient as it's easier to adapt mobile designs to desktop than vice versa.</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Mobile-First Approach: Start designing for mobile devices first, then progressively enhance for larger screens. This approach is more efficient as it's easier to adapt mobile designs to desktop than vice versa.</p>
+                    <pre><code>
     /* Base styles for mobile devices first */
     body {
         font-size: 16px;
@@ -368,9 +368,9 @@
             width: 1140px;
         }
     }
-                </code></pre>
-                <h3 class="subtitle">Responsive Units</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Responsive Units</h3>
+                    <pre><code>
     div {
         /* Relative to parent element's font-size */
         width: 10em;
@@ -385,10 +385,10 @@
         /* Percentage of parent element */
         max-width: 80%;
     }                    
-                </code></pre>
-                <h2 class="subtitle">CSS Custom Properties (Variables)</h2>
-                <p>CSS custom properties (also known as CSS variables) allow you to store specific values to reuse throughout your stylesheet:</p>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">CSS Custom Properties (Variables)</h2>
+                    <p>CSS custom properties (also known as CSS variables) allow you to store specific values to reuse throughout your stylesheet:</p>
+                    <pre><code>
     /* Declaring variables in the root scope */
     :root {
         --primary-color: #3498db;
@@ -425,17 +425,17 @@
             --secondary-color: #55efc4;
         }
     }
-                </code></pre>
-                <p>Custom properties make your CSS more maintainable and allow for dynamic styling with JavaScript.</p>
-                <h2 class="subtitle">CSS Preprocessors</h2>
-                <p>CSS preprocessors extend CSS with variables, nesting, functions, mixins, and more:</p>
-                <ul>
-                    <li>Sass/SCSS: Most mature and widely used</li>
-                    <li>Less: Similar to Sass with different syntax</li>
-                    <li>Stylus: Minimalist syntax with powerful features</li>
-                </ul>
-                <p>Example (SCSS syntax):</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Custom properties make your CSS more maintainable and allow for dynamic styling with JavaScript.</p>
+                    <h2 class="subtitle">CSS Preprocessors</h2>
+                    <p>CSS preprocessors extend CSS with variables, nesting, functions, mixins, and more:</p>
+                    <ul>
+                        <li>Sass/SCSS: Most mature and widely used</li>
+                        <li>Less: Similar to Sass with different syntax</li>
+                        <li>Stylus: Minimalist syntax with powerful features</li>
+                    </ul>
+                    <p>Example (SCSS syntax):</p>
+                    <pre><code>
     $primary-color: #3498db;
     $padding: 15px;
     
@@ -456,42 +456,43 @@
             }
         }
     }
-                </code></pre>
-                <h2 class="subtitle">CSS Frameworks</h2>
-                <p>CSS frameworks provide pre-written CSS code for common components and layouts:</p>
-                <ul>
-                    <li>Bootstrap: Popular framework with extensive components</li>
-                    <li>Tailwind CSS: Utility-first approach</li>
-                    <li>Bulma: Modern framework with a clean syntax</li>
-                    <li>Foundation: Enterprise-grade framework</li>
-                </ul>
-                <h2 class="subtitle">Best Practices</h2>
-                <ol>
-                    <li>Use a CSS reset or normalize.css to maintain consistency across browsers</li>
-                    <li>Follow a naming convention (like BEM: Block, Element, Modifier)</li>
-                    <li>Organize your CSS with comments and logical grouping</li>
-                    <li>Minimize specificity to avoid difficult overrides</li>
-                    <li>Use shorthand properties where appropriate</li>
-                    <li>Avoid !important unless absolutely necessary</li>
-                    <li>Optimize for performance by reducing redundant rules</li>
-                    <li>Keep responsive design in mind from the beginning</li>
-                    <li>Use developer tools to debug and test CSS</li>
-                    <li>Document your CSS for other developers</li>
-                </ol>
-                <h2 class="subtitle">Tools for CSS Development</h2>
-                <ul>
-                    <li>Browser developer tools for inspecting and testing CSS</li>
-                    <li>CSS validators like the W3C CSS Validation Service</li>
-                    <li>Visual Studio Code with CSS extensions</li>
-                    <li>CSS preprocessor compilers (Sass, Less, etc.)</li>
-                    <li>Online tools like CodePen, CSS Grid Generator, Flexbox Froggy (learning game)</li>
-                </ul>
-                <p>CSS is a powerful language that allows you to create beautiful, responsive designs. While it may seem simple at first, mastering CSS can take time. The key is to practice regularly and build projects that challenge your skills.</p>
-            </div>
-        </main>
-        <footer>
-            <p>Made by Lsbn - All rights reserved</p>
-        </footer>
+                    </code></pre>
+                    <h2 class="subtitle">CSS Frameworks</h2>
+                    <p>CSS frameworks provide pre-written CSS code for common components and layouts:</p>
+                    <ul>
+                        <li>Bootstrap: Popular framework with extensive components</li>
+                        <li>Tailwind CSS: Utility-first approach</li>
+                        <li>Bulma: Modern framework with a clean syntax</li>
+                        <li>Foundation: Enterprise-grade framework</li>
+                    </ul>
+                    <h2 class="subtitle">Best Practices</h2>
+                    <ol>
+                        <li>Use a CSS reset or normalize.css to maintain consistency across browsers</li>
+                        <li>Follow a naming convention (like BEM: Block, Element, Modifier)</li>
+                        <li>Organize your CSS with comments and logical grouping</li>
+                        <li>Minimize specificity to avoid difficult overrides</li>
+                        <li>Use shorthand properties where appropriate</li>
+                        <li>Avoid !important unless absolutely necessary</li>
+                        <li>Optimize for performance by reducing redundant rules</li>
+                        <li>Keep responsive design in mind from the beginning</li>
+                        <li>Use developer tools to debug and test CSS</li>
+                        <li>Document your CSS for other developers</li>
+                    </ol>
+                    <h2 class="subtitle">Tools for CSS Development</h2>
+                    <ul>
+                        <li>Browser developer tools for inspecting and testing CSS</li>
+                        <li>CSS validators like the W3C CSS Validation Service</li>
+                        <li>Visual Studio Code with CSS extensions</li>
+                        <li>CSS preprocessor compilers (Sass, Less, etc.)</li>
+                        <li>Online tools like CodePen, CSS Grid Generator, Flexbox Froggy (learning game)</li>
+                    </ul>
+                    <p>CSS is a powerful language that allows you to create beautiful, responsive designs. While it may seem simple at first, mastering CSS can take time. The key is to practice regularly and build projects that challenge your skills.</p>
+                </div>
+            </main>
+            <footer>
+                <p>Made by Lsbn - All rights reserved</p>
+            </footer>
+        </div>
         <script src="../scripts/main.js"></script>
     </body>
 

@@ -10,32 +10,33 @@
     </head>
 
     <body>
-        <header>
-            <nav>
-                <img src="../images/html-css-js.jpg" alt="Logo of html, css and javascript">
-                <ul>
-                    <li><a class="link nav-link" href="../index.html">Home</a></li>
-                    <li><a class="link nav-link" href="./html.html">HTML</a></li>
-                    <li><a class="link nav-link" href="./css.html">CSS</a></li>
-                    <li><a class="link nav-link" href="./javascript.html">JavaScript</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h1 class="title">Introduction to JavaScript</h1>
-            <div class="container introduction">
-                <p>
-                    JavaScript is a high-level, interpreted programming language that enables interactive web pages and is an essential part of web applications. While HTML provides structure and CSS handles presentation, JavaScript adds behavior and functionality to websites.
-                </p>
-                <h2 class="subtitle">JavaScript Basics</h2>
-                <h3 class="subtitle">Adding JavaScript to HTML</h3>
-                <p>There are three ways to include JavaScript in your HTML:</p>
-                <h4>1. Inline JavaScript</h4>
-                <pre><code>
+        <div class="page-wrapper">
+            <header>
+                <nav>
+                    <img src="../images/html-css-js.jpg" alt="Logo of html, css and javascript">
+                    <ul>
+                        <li><a class="link nav-link" href="../index.html">Home</a></li>
+                        <li><a class="link nav-link" href="./html.html">HTML</a></li>
+                        <li><a class="link nav-link" href="./css.html">CSS</a></li>
+                        <li><a class="link nav-link" href="./javascript.html">JavaScript</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <h1 class="title">Introduction to JavaScript</h1>
+                <div class="container introduction">
+                    <p>
+                        JavaScript is a high-level, interpreted programming language that enables interactive web pages and is an essential part of web applications. While HTML provides structure and CSS handles presentation, JavaScript adds behavior and functionality to websites.
+                    </p>
+                    <h2 class="subtitle">JavaScript Basics</h2>
+                    <h3 class="subtitle">Adding JavaScript to HTML</h3>
+                    <p>There are three ways to include JavaScript in your HTML:</p>
+                    <h4>1. Inline JavaScript</h4>
+                    <pre><code>
     &lt;button onclick="alert('Hello, World!')"&gt;Click Me&lt;/button&gt;
-                </code></pre>
-                <h4>2. Internal JavaScript</h4>
-                <pre><code>
+                    </code></pre>
+                    <h4>2. Internal JavaScript</h4>
+                    <pre><code>
     &lt;head&gt;
         &lt;script&gt;
             function greet() {
@@ -46,23 +47,23 @@
     &lt;body&gt;
         &lt;button onclick="greet()"&gt;Click Me&lt;/button&gt;
     &lt;/body&gt;
-                </code></pre>
-                <h4>3. External JavaScript (Recommended)</h4>
-                <pre><code>
+                    </code></pre>
+                    <h4>3. External JavaScript (Recommended)</h4>
+                    <pre><code>
     &lt;head&gt;
         &lt;script src="script.js"&gt;&lt;/script&gt;
     &lt;/head&gt;
-                </code></pre>
-                <p>Where `script.js` might contain:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Where `script.js` might contain:</p>
+                    <pre><code>
     function greet() {
         alert('Hello, World!');
     }
-                </code></pre>
-                <p>Best practice: Place `&lt;script&gt;` tags just before the closing `&lt;/body&gt;` tag to improve page loading performance.</p>
-                <h3 class="subtitle">Variables and Data Types</h3>
-                <p>JavaScript has several ways to declare variables:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>Best practice: Place `&lt;script&gt;` tags just before the closing `&lt;/body&gt;` tag to improve page loading performance.</p>
+                    <h3 class="subtitle">Variables and Data Types</h3>
+                    <p>JavaScript has several ways to declare variables:</p>
+                    <pre><code>
     // Using var (older way, function-scoped)
     var name = "John";
     
@@ -71,9 +72,9 @@
     
     // Using const (block-scoped, cannot be reassigned)
     const PI = 3.14159;                    
-                </code></pre>
-                <p>JavaScript has various data types:</p>
-                <pre><code>
+                    </code></pre>
+                    <p>JavaScript has various data types:</p>
+                    <pre><code>
     // Primitive types
     let string = "Hello";           // String
     let number = 42;                // Number
@@ -92,9 +93,9 @@
     };
     let date = new Date();          // Date object
     let regex = /pattern/;          // Regular Expression
-                </code></pre>
-                <h3 class="subtitle">Operators</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Operators</h3>
+                    <pre><code>
     // Arithmetic operators
     let sum = 5 + 3;        // Addition
     let difference = 10 - 5; // Subtraction
@@ -131,10 +132,10 @@
     
     // String operators
     let greeting = "Hello" + " " + "World"; // Concatenation
-                </code></pre>
-                <h3 class="subtitle">Control Flow</h3>
-                <h4>Conditional Statements</h4>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Control Flow</h3>
+                    <h4>Conditional Statements</h4>
+                    <pre><code>
     // If statement
     if (age &gt;= 18) {
         console.log("You are an adult");
@@ -160,9 +161,9 @@
     
     // Ternary operator
     let status = (age &gt;= 18) ? "adult" : "minor";                    
-                </code></pre>
-                <h4>Loops</h4>
-                <pre><code>
+                    </code></pre>
+                    <h4>Loops</h4>
+                    <pre><code>
     // For loop
     for (let i = 0; i &lt; 5; i++) {
         console.log(i); // Outputs 0, 1, 2, 3, 4
@@ -193,9 +194,9 @@
     for (const key in person) {
         console.log(`${key}: ${person[key]}`);
     }
-                </code></pre>
-                <h3 class="subtitle">Functions</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Functions</h3>
+                    <pre><code>
     // Function declaration
     function greet(name) {
         return `Hello, ${name}!`;
@@ -231,10 +232,10 @@
     fetchData(function(data) {
         console.log(data);
     });
-                </code></pre>
-                <h2 class="subtitle">Working with Data Structures</h2>
-                <h3 class="subtitle">Arrays</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Working with Data Structures</h2>
+                    <h3 class="subtitle">Arrays</h3>
+                    <pre><code>
     // Creating arrays
     const numbers = [1, 2, 3, 4, 5];
     const mixed = [1, "two", true, { id: 4 }];
@@ -276,9 +277,9 @@
     
     // sort: sorts the elements of an array
     numbers.sort((a, b) =&gt; a - b); // Numeric sort                    
-                </code></pre>
-                <h3 class="subtitle">Objects</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Objects</h3>
+                    <pre><code>
     // Creating objects
     const person = {
         firstName: "John",
@@ -322,10 +323,10 @@
     
     // Object.assign
     const merged = Object.assign({}, person, { age: 31, job: "developer" });
-                </code></pre>
-                <h2 class="subtitle">DOM Manipulation</h2>
-                <p>The Document Object Model (DOM) is a programming interface for web documents. JavaScript can change all the HTML elements, attributes, and CSS styles in the page.</p>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">DOM Manipulation</h2>
+                    <p>The Document Object Model (DOM) is a programming interface for web documents. JavaScript can change all the HTML elements, attributes, and CSS styles in the page.</p>
+                    <pre><code>
     // Selecting elements
     const element = document.getElementById("myId");
     const elements = document.getElementsByClassName("myClass");
@@ -374,10 +375,10 @@
     const children = element.children;
     const firstChild = element.firstElementChild;
     const nextSibling = element.nextElementSibling;                    
-                </code></pre>
-                <h2 class="subtitle">Events</h2>
-                <p>Events are actions or occurrences that happen in the browser.</p>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Events</h2>
+                    <p>Events are actions or occurrences that happen in the browser.</p>
+                    <pre><code>
     // Adding event listeners
     const button = document.querySelector("button");
     
@@ -430,11 +431,11 @@
     document.querySelector("form").addEventListener("submit", function(event) {
         event.preventDefault(); // Stops form submission
     });
-                </code></pre>
-                <h2 class="subtitle">Asynchronous JavaScript</h2>
-                <p>JavaScript is single-threaded, but can perform asynchronous operations via callbacks, promises, and async/await.</p>
-                <h3 class="subtitle">Callbacks</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Asynchronous JavaScript</h2>
+                    <p>JavaScript is single-threaded, but can perform asynchronous operations via callbacks, promises, and async/await.</p>
+                    <h3 class="subtitle">Callbacks</h3>
+                    <pre><code>
     // Simple callback example
     function fetchData(callback) {
         setTimeout(() =&gt; {
@@ -455,10 +456,10 @@
             });
         });
     });                    
-                </code></pre>
-                <h3 class="subtitle">Promises</h3>
-                <p>Promises represent a value that might be available now, later, or never.</p>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Promises</h3>
+                    <p>Promises represent a value that might be available now, later, or never.</p>
+                    <pre><code>
     // Creating a promise
     const promise = new Promise((resolve, reject) =&gt; {
         // Async operation
@@ -499,10 +500,10 @@
     
     Promise.any([promise1, promise2]) // Resolves with the first promise to fulfill
         .then(result =&gt; console.log(result));
-                </code></pre>
-                <h3 class="subtitle">Fetch API</h3>
-                <p>The Fetch API provides a modern interface for making HTTP requests.</p>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Fetch API</h3>
+                    <p>The Fetch API provides a modern interface for making HTTP requests.</p>
+                    <pre><code>
     // Basic GET request
     fetch('https://api.example.com/data')
         .then(response =&gt; {
@@ -532,10 +533,10 @@
     })
         .then(response =&gt; response.json())
         .then(data =&gt; console.log(data));
-                </code></pre>
-                <h3 class="subtitle">Async/Await</h3>
-                <p>Async/await is syntactic sugar over promises, making asynchronous code look more like synchronous code.</p>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Async/Await</h3>
+                    <p>Async/await is syntactic sugar over promises, making asynchronous code look more like synchronous code.</p>
+                    <pre><code>
     // Async function declaration
     async function fetchUserData() {
         try {
@@ -571,9 +572,9 @@
             console.error('Error in loadUserDetails:', error);
         }
     }
-                </code></pre>
-                <h2 class="subtitle">Error Handling</h2>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">Error Handling</h2>
+                    <pre><code>
     // Try-catch statement
     try {
         // Code that might throw an error
@@ -613,24 +614,24 @@
             throw error; // Re-throw for caller to handle
         }
     }
-                </code></pre>
-                <h2 class="subtitle">ES6+ Features</h2>
-                <p>JavaScript has evolved with new features in recent versions. ES6 (ECMAScript 2015) was a major update that introduced many of these features, with additional ones added in yearly releases since then:</p>
-                <h3 class="subtitle">Template Literals</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">ES6+ Features</h2>
+                    <p>JavaScript has evolved with new features in recent versions. ES6 (ECMAScript 2015) was a major update that introduced many of these features, with additional ones added in yearly releases since then:</p>
+                    <h3 class="subtitle">Template Literals</h3>
+                    <pre><code>
     const name = "John";
     const greeting = `Hello, ${name}! Today is ${new Date().toLocaleDateString()}.`;                    
-                </code></pre>
-                <h3 class="subtitle">Destructuring</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Destructuring</h3>
+                    <pre><code>
     // Array destructuring
     const [first, second, ...rest] = [1, 2, 3, 4, 5];
     
     // Object destructuring
     const { name, age, job = "Developer" } = person;
-                </code></pre>
-                <h3 class="subtitle">Spread/Rest Operators</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Spread/Rest Operators</h3>
+                    <pre><code>
     // Spread (expanding)
     const newArray = [...oldArray, newItem];
     const newObject = { ...oldObject, newProp: value };
@@ -639,15 +640,15 @@
     function logAll(first, ...others) {
         console.log(first, others);
     }
-                </code></pre>
-                <h3 class="subtitle">Arrow Functions</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Arrow Functions</h3>
+                    <pre><code>
     const add = (a, b) =&gt; a + b;
     const greet = name =&gt; `Hello, ${name}`;
     const createObject = () =&gt; ({ key: "value" });
-                </code></pre>
-                <h3 class="subtitle">Classes</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Classes</h3>
+                    <pre><code>
     class Person {
         constructor(name, age) {
             this.name = name;
@@ -673,9 +674,9 @@
             return `${this.name} is working as a ${this.job}`;
         }
     }
-                </code></pre>
-                <h3 class="subtitle">Modules</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Modules</h3>
+                    <pre><code>
     // Exporting (file: math.js)
     export function add(a, b) {
         return a + b;
@@ -685,9 +686,9 @@
     
     // Importing (another file)
     import Calculator, { add, PI as MathPI } from './math.js';
-                </code></pre>
-                <h3 class="subtitle">Map and Set</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Map and Set</h3>
+                    <pre><code>
     // Map: key-value pairs (any type of keys)
     const userMap = new Map();
     userMap.set('user1', { name: 'John' });
@@ -697,35 +698,35 @@
     // Set: collection of unique values
     const uniqueNumbers = new Set([1, 2, 3, 2, 1]);
     console.log([...uniqueNumbers]); // [1, 2, 3]
-                </code></pre>
-                <h3 class="subtitle">Optional Chaining</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Optional Chaining</h3>
+                    <pre><code>
     // Instead of: user && user.address && user.address.city
     const city = user?.address?.city; // Undefined if any part is null/undefined
-                </code></pre>
-                <h3 class="subtitle">Nullish Coalescing</h3>
-                <pre><code>
+                    </code></pre>
+                    <h3 class="subtitle">Nullish Coalescing</h3>
+                    <pre><code>
     // Use fallback only if value is null or undefined
     const username = user.name ?? 'Anonymous'; // '' is a valid name
-                </code></pre>
-                <h2 class="subtitle">JavaScript Best Practices</h2>
-                <ol>
-                    <li>Use strict mode to catch common coding mistakes</li>
-                    <li>Declare variables properly - prefer `const` when possible, then `let` if needed</li>
-                    <li>Use meaningful variable and function names that clearly explain their purpose</li>
-                    <li>Write modular code - small, focused functions that do one thing well</li>
-                    <li>Comment your code where necessary, but strive for self-documenting code</li>
-                    <li>Handle errors gracefully with try-catch blocks</li>
-                    <li>Avoid global variables to prevent naming conflicts</li>
-                    <li>Use modern JavaScript features like destructuring, arrow functions, and template literals</li>
-                    <li>Follow a style guide like Airbnb or Google's JavaScript style guide</li>
-                    <li>Use linting tools like ESLint to catch errors and enforce coding standards</li>
-                    <li>Test your code with frameworks like Jest or Mocha</li>
-                    <li>Optimize for performance by avoiding unnecessary DOM manipulation and using efficient algorithms</li>
-                </ol>
-                <h2 class="subtitle">Debugging JavaScript</h2>
-                <h3 class="subtitle">Console Methods</h3>
-                <pre><code>
+                    </code></pre>
+                    <h2 class="subtitle">JavaScript Best Practices</h2>
+                    <ol>
+                        <li>Use strict mode to catch common coding mistakes</li>
+                        <li>Declare variables properly - prefer `const` when possible, then `let` if needed</li>
+                        <li>Use meaningful variable and function names that clearly explain their purpose</li>
+                        <li>Write modular code - small, focused functions that do one thing well</li>
+                        <li>Comment your code where necessary, but strive for self-documenting code</li>
+                        <li>Handle errors gracefully with try-catch blocks</li>
+                        <li>Avoid global variables to prevent naming conflicts</li>
+                        <li>Use modern JavaScript features like destructuring, arrow functions, and template literals</li>
+                        <li>Follow a style guide like Airbnb or Google's JavaScript style guide</li>
+                        <li>Use linting tools like ESLint to catch errors and enforce coding standards</li>
+                        <li>Test your code with frameworks like Jest or Mocha</li>
+                        <li>Optimize for performance by avoiding unnecessary DOM manipulation and using efficient algorithms</li>
+                    </ol>
+                    <h2 class="subtitle">Debugging JavaScript</h2>
+                    <h3 class="subtitle">Console Methods</h3>
+                    <pre><code>
     console.log("Basic logging");
     console.error("Error message");
     console.warn("Warning message");
@@ -737,74 +738,75 @@
     console.group("Grouped messages");
     console.log("Message in group");
     console.groupEnd();                    
-                </code></pre>
-                <h3 class="subtitle">Breakpoints</h3>
-                <ul>
-                    <li>Use the debugger statement to set a breakpoint in code</li>
-                    <li>Browser DevTools allow setting breakpoints visually</li>
-                </ul>
-                <h3 class="subtitle">Browser DevTools</h3>
-                <ul>
-                    <li>Sources panel for debugging scripts</li>
-                    <li>Network panel for monitoring requests</li>
-                    <li>Performance panel for optimizing code</li>
-                    <li>Memory panel for finding memory leaks</li>
-                </ul>
-                <h2 class="subtitle">Popular JavaScript Libraries and Frameworks</h2>
-                <h3 class="subtitle">DOM Manipulation</h3>
-                <ul>
-                    <li>jQuery: Simplified DOM manipulation (less needed with modern JS)</li>
-                </ul>
-                <h3 class="subtitle">Front-end Frameworks</h3>
-                <ul>
-                    <li>React: Component-based library for building user interfaces</li>
-                    <li>Vue.js: Progressive framework for building UIs</li>
-                    <li>Angular: Comprehensive framework for web applications</li>
-                    <li>Svelte: Compiler that generates minimal JavaScript</li>
-                </ul>
-                <h3 class="subtitle">State Management</h3>
-                <ul>
-                    <li>Redux: Predictable state container for JavaScript apps</li>
-                    <li>MobX: Simple, scalable state management</li>
-                    <li>Zustand: Lightweight state management with hooks</li>
-                </ul>
-                <h3 class="subtitle">Animation</h3>
-                <ul>
-                    <li>GSAP: Professional-grade animation for the web</li>
-                    <li>Three.js: 3D library that uses WebGL</li>
-                </ul>
-                <h3 class="subtitle">Utility Libraries</h3>
-                <ul>
-                    <li>Lodash: Utility functions for common programming tasks</li>
-                    <li>Moment.js/date-fns: Date manipulation and formatting</li>
-                    <li>Axios: Promise-based HTTP client</li>
-                </ul>
-                <h3 class="subtitle">Full-stack Frameworks</h3>
-                <ul>
-                    <li>Next.js: React framework with SSR and static site generation</li>
-                    <li>Nuxt.js: Vue framework with similar features to Next.js</li>
-                    <li>SvelteKit: Application framework for Svelte</li>
-                </ul>
-                <h2 class="subtitle">Next Steps in JavaScript Learning</h2>
-                <ol>
-                    <li>Master the fundamentals - variables, functions, objects, arrays, and control flow</li>
-                    <li>Understand async JavaScript deeply - callbacks, promises, and async/await</li>
-                    <li>Learn DOM manipulation for interactive web pages</li>
-                    <li>Explore modern JavaScript features in ES6+</li>
-                    <li>Study a popular framework like React, Vue, or Angular</li>
-                    <li>Learn state management patterns and libraries</li>
-                    <li>Explore back-end JavaScript with Node.js</li>
-                    <li>Study testing frameworks like Jest or Mocha</li>
-                    <li>Learn TypeScript for type safety</li>
-                    <li>Practice building projects to apply your knowledge</li>
-                </ol>
-                <p>JavaScript's versatility makes it valuable in virtually all web development contexts, from front-end to back-end, mobile apps to desktop applications, and even game development.</p>
-                <p>By mastering JavaScript along with HTML and CSS, you'll have the essential skills to build modern web applications.</p>
-            </div>
-        </main>
-        <footer>
-            <p>Made by Lsbn - All rights reserved</p>
-        </footer>
+                    </code></pre>
+                    <h3 class="subtitle">Breakpoints</h3>
+                    <ul>
+                        <li>Use the debugger statement to set a breakpoint in code</li>
+                        <li>Browser DevTools allow setting breakpoints visually</li>
+                    </ul>
+                    <h3 class="subtitle">Browser DevTools</h3>
+                    <ul>
+                        <li>Sources panel for debugging scripts</li>
+                        <li>Network panel for monitoring requests</li>
+                        <li>Performance panel for optimizing code</li>
+                        <li>Memory panel for finding memory leaks</li>
+                    </ul>
+                    <h2 class="subtitle">Popular JavaScript Libraries and Frameworks</h2>
+                    <h3 class="subtitle">DOM Manipulation</h3>
+                    <ul>
+                        <li>jQuery: Simplified DOM manipulation (less needed with modern JS)</li>
+                    </ul>
+                    <h3 class="subtitle">Front-end Frameworks</h3>
+                    <ul>
+                        <li>React: Component-based library for building user interfaces</li>
+                        <li>Vue.js: Progressive framework for building UIs</li>
+                        <li>Angular: Comprehensive framework for web applications</li>
+                        <li>Svelte: Compiler that generates minimal JavaScript</li>
+                    </ul>
+                    <h3 class="subtitle">State Management</h3>
+                    <ul>
+                        <li>Redux: Predictable state container for JavaScript apps</li>
+                        <li>MobX: Simple, scalable state management</li>
+                        <li>Zustand: Lightweight state management with hooks</li>
+                    </ul>
+                    <h3 class="subtitle">Animation</h3>
+                    <ul>
+                        <li>GSAP: Professional-grade animation for the web</li>
+                        <li>Three.js: 3D library that uses WebGL</li>
+                    </ul>
+                    <h3 class="subtitle">Utility Libraries</h3>
+                    <ul>
+                        <li>Lodash: Utility functions for common programming tasks</li>
+                        <li>Moment.js/date-fns: Date manipulation and formatting</li>
+                        <li>Axios: Promise-based HTTP client</li>
+                    </ul>
+                    <h3 class="subtitle">Full-stack Frameworks</h3>
+                    <ul>
+                        <li>Next.js: React framework with SSR and static site generation</li>
+                        <li>Nuxt.js: Vue framework with similar features to Next.js</li>
+                        <li>SvelteKit: Application framework for Svelte</li>
+                    </ul>
+                    <h2 class="subtitle">Next Steps in JavaScript Learning</h2>
+                    <ol>
+                        <li>Master the fundamentals - variables, functions, objects, arrays, and control flow</li>
+                        <li>Understand async JavaScript deeply - callbacks, promises, and async/await</li>
+                        <li>Learn DOM manipulation for interactive web pages</li>
+                        <li>Explore modern JavaScript features in ES6+</li>
+                        <li>Study a popular framework like React, Vue, or Angular</li>
+                        <li>Learn state management patterns and libraries</li>
+                        <li>Explore back-end JavaScript with Node.js</li>
+                        <li>Study testing frameworks like Jest or Mocha</li>
+                        <li>Learn TypeScript for type safety</li>
+                        <li>Practice building projects to apply your knowledge</li>
+                    </ol>
+                    <p>JavaScript's versatility makes it valuable in virtually all web development contexts, from front-end to back-end, mobile apps to desktop applications, and even game development.</p>
+                    <p>By mastering JavaScript along with HTML and CSS, you'll have the essential skills to build modern web applications.</p>
+                </div>
+            </main>
+            <footer>
+                <p>Made by Lsbn - All rights reserved</p>
+            </footer>
+        </div>
         <script src="../scripts/main.js"></script>
     </body>
 
