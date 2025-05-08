@@ -3,17 +3,17 @@
     --primary-color: #7e9ccf; 
     --secondary-color: #8fc1a9; 
     --accent-color: #b97ecf; 
-    --text-color: #2e2e2e;
-    --background-color: #f9fafa;
-    --card-background: #ffffff;
-    --monospace-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    --sans-serif-font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --text-color: #cbc6c0;
+    --background-color: #1b1d1e;
+    --card-background: #181a1b;
+    --monospace-font: monospace;
+    --sans-serif-font: sans-serif;
 }
 
 body {
     margin: 0;
     font-family: var(--sans-serif-font);
-    background-color: #ffffff;
+    background-color: #181a1b;
     color: var(--text-color);
     line-height: 1.6;
 }
