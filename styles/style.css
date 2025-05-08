@@ -1,0 +1,98 @@
+body {
+    margin: 20px 50px;
+    font-family: "monospace";
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img {
+    width: 80px;
+    object-fit: cover;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.link {
+    text-decoration: none;
+    color: #000000;
+}
+.link:hover {
+    color: #9915eb;
+}
+
+.title,
+.subtitle {
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    padding: 50px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+.subtitle {
+    padding: 30px
+}
+
+.container {
+    display: flex;
+    gap: 50px
+}
+
+.introduction {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    width: 33.33%;
+}
+
+.card img {
+    height: 265px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card p {
+    text-align: center;
+    margin: 1rem;
+}
+
+pre {
+    background-color: #eeeeee;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .introduction {
+        align-items: normal;
+    }
+
+    .card {
+        width: 75%;
+
+    }
+
+    .card img {
+        height: auto;
+    }
+}
