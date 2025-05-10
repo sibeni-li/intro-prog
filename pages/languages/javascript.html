@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="../../styles/style.css" rel="stylesheet">
+    <title>Javascript</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <img src="../../images/logo.png" alt="Logo">
+                <ul>
+                    <li><a class="link nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="link nav-link" href="../languages/html.html">HTML</a></li>
+                    <li><a class="link nav-link" href="../languages/css.html">CSS</a></li>
+                    <li><a class="link nav-link" href="../languages/javascript.html">JavaScript</a></li>
+                    <li><a class="link nav-link" href="../languages/python.html">Python</a></li>
+                    <li><a class="link nav-link" href="../languages/c.html">C</a></li>
+                    <li><a class="link nav-link" href="../frameworks/react.html">React</a></li>
+                    <li><a class="link nav-link" href="../frameworks/nodejs.html">Node.js</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container introduction">
+                <h1>Introduction to JavaScript</h1>
+<p>JavaScript is a high-level, interpreted programming language that enables interactive web pages and is an essential part of web applications. While HTML provides structure and CSS handles presentation, JavaScript adds behavior and functionality to websites.</p>
+<h2>JavaScript Basics</h2>
+<h3>Adding JavaScript to HTML</h3>
+<p>There are three ways to include JavaScript in your HTML:</p>
+<h4>1. Inline JavaScript</h4>
+<pre><code class="language-html">&lt;button onclick=&quot;alert('Hello, World!')&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<h4>2. Internal JavaScript</h4>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;script&gt;
+        function greet() {
+            alert('Hello, World!');
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button onclick=&quot;greet()&quot;&gt;Click Me&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+<h4>3. External JavaScript (Recommended)</h4>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<p>Where <code>script.js</code> might contain:</p>
+<pre><code class="language-javascript">function greet() {
+    alert('Hello, World!');
+}
+</code></pre>
+<p><strong>Best practice:</strong> Place <code>&lt;script&gt;</code> tags just before the closing <code>&lt;/body&gt;</code> tag to improve page loading performance.</p>
+<h3>Variables and Data Types</h3>
+<p>JavaScript has several ways to declare variables:</p>
+<pre><code class="language-javascript">// Using var (older way, function-scoped)
+var name = &quot;John&quot;;
+
+// Using let (block-scoped, can be reassigned)
+let age = 30;
+
+// Using const (block-scoped, cannot be reassigned)
+const PI = 3.14159;
+</code></pre>
+<p>JavaScript has various data types:</p>
+<pre><code class="language-javascript">// Primitive types
+let string = &quot;Hello&quot;;           // String
+let number = 42;                // Number
+let decimal = 3.14;             // Number (no separate float type)
+let boolean = true;             // Boolean (true or false)
+let nothing = null;             // Null (explicit absence of value)
+let undefined_var;              // Undefined (variable declared but not assigned)
+let unique = Symbol(&quot;id&quot;);      // Symbol (unique identifier)
+let bigInt = 9007199254740991n; // BigInt (for large integers)
+
+// Object types
+let array = [1, 2, 3, 4];       // Array
+let object = {                  // Object
+    name: &quot;John&quot;,
+    age: 30
+};
+let date = new Date();          // Date object
+let regex = /pattern/;          // Regular Expression
+</code></pre>
+<h3>Operators</h3>
+<pre><code class="language-javascript">// Arithmetic operators
+let sum = 5 + 3;        // Addition
+let difference = 10 - 5; // Subtraction
+let product = 4 * 2;     // Multiplication
+let quotient = 20 / 5;   // Division
+let remainder = 10 % 3;  // Modulus (remainder)
+let exponent = 2 ** 3;   // Exponentiation (2³ = 8)
+let increment = 5;
+increment++;            // Increment (now 6)
+let decrement = 5;
+decrement--;            // Decrement (now 4)
+
+// Assignment operators
+let x = 10;             // Assignment
+x += 5;                 // Add and assign (x = x + 5)
+x -= 3;                 // Subtract and assign
+x *= 2;                 // Multiply and assign
+x /= 4;                 // Divide and assign
+
+// Comparison operators
+let isEqual = 5 == &quot;5&quot;;     // Equal (value only, returns true)
+let isStrictEqual = 5 === &quot;5&quot;; // Strict equal (value and type, returns false)
+let isNotEqual = 5 != &quot;6&quot;;  // Not equal (value only)
+let isStrictNotEqual = 5 !== &quot;5&quot;; // Strict not equal (value and type)
+let isGreater = 10 &gt; 5;     // Greater than
+let isLess = 5 &lt; 10;        // Less than
+let isGreaterOrEqual = 10 &gt;= 10; // Greater than or equal
+let isLessOrEqual = 5 &lt;= 5;  // Less than or equal
+
+// Logical operators
+let and = true &amp;&amp; false;    // Logical AND (returns false)
+let or = true || false;     // Logical OR (returns true)
+let not = !true;            // Logical NOT (returns false)
+
+// String operators
+let greeting = &quot;Hello&quot; + &quot; &quot; + &quot;World&quot;; // Concatenation
+</code></pre>
+<h3>Control Flow</h3>
+<h4>Conditional Statements</h4>
+<pre><code class="language-javascript">// If statement
+if (age &gt;= 18) {
+    console.log(&quot;You are an adult&quot;);
+} else if (age &gt;= 13) {
+    console.log(&quot;You are a teenager&quot;);
+} else {
+    console.log(&quot;You are a child&quot;);
+}
+
+// Switch statement
+let day = new Date().getDay();
+switch (day) {
+    case 0:
+        console.log(&quot;Sunday&quot;);
+        break;
+    case 1:
+        console.log(&quot;Monday&quot;);
+        break;
+    // ...other cases
+    default:
+        console.log(&quot;Unknown day&quot;);
+}
+
+// Ternary operator
+let status = (age &gt;= 18) ? &quot;adult&quot; : &quot;minor&quot;;
+</code></pre>
+<h4>Loops</h4>
+<pre><code class="language-javascript">// For loop
+for (let i = 0; i &lt; 5; i++) {
+    console.log(i); // Outputs 0, 1, 2, 3, 4
+}
+
+// While loop
+let counter = 0;
+while (counter &lt; 5) {
+    console.log(counter);
+    counter++;
+}
+
+// Do-while loop (executes at least once)
+let j = 0;
+do {
+    console.log(j);
+    j++;
+} while (j &lt; 5);
+
+// For...of loop (iterating over arrays)
+const fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;];
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+
+// For...in loop (iterating over object properties)
+const person = { name: &quot;John&quot;, age: 30, job: &quot;developer&quot; };
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+</code></pre>
+<h3>Functions</h3>
+<pre><code class="language-javascript">// Function declaration
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+// Function expression
+const sayHello = function(name) {
+    return `Hello, ${name}!`;
+};
+
+// Arrow function
+const welcome = (name) =&gt; `Welcome, ${name}!`;
+
+// Default parameters
+function greetUser(name = &quot;Guest&quot;) {
+    return `Hello, ${name}!`;
+}
+
+// Rest parameters
+function sum(...numbers) {
+    return numbers.reduce((total, num) =&gt; total + num, 0);
+}
+
+// Function with callback
+function fetchData(callback) {
+    // Simulating async operation
+    setTimeout(() =&gt; {
+        const data = { user: &quot;John&quot;, id: 123 };
+        callback(data);
+    }, 1000);
+}
+
+fetchData(function(data) {
+    console.log(data);
+});
+</code></pre>
+<h2>Working with Data Structures</h2>
+<h3>Arrays</h3>
+<pre><code class="language-javascript">// Creating arrays
+const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, &quot;two&quot;, true, { id: 4 }];
+const empty = new Array(3); // Creates [empty × 3]
+
+// Accessing elements
+const first = numbers[0]; // 1
+const last = numbers[numbers.length - 1]; // 5
+
+// Common array methods
+numbers.push(6);           // Add to end: [1,2,3,4,5,6]
+numbers.pop();             // Remove from end: [1,2,3,4,5]
+numbers.unshift(0);        // Add to beginning: [0,1,2,3,4,5]
+numbers.shift();           // Remove from beginning: [1,2,3,4,5]
+numbers.splice(2, 1, 'a'); // Remove 1 element at index 2 and insert 'a': [1,2,'a',4,5]
+numbers.slice(1, 3);       // Extract elements from index 1 to 3 (exclusive): [2,'a']
+
+// Array methods for processing
+// map: creates a new array by performing a function on each array element
+const doubled = numbers.map(num =&gt; num * 2); // [2,4,'a2',8,10]
+
+// filter: creates a new array with elements that pass a test
+const evenNumbers = numbers.filter(num =&gt; typeof num === 'number' &amp;&amp; num % 2 === 0); // [2,4]
+
+// reduce: reduces array to a single value (accumulator)
+const sum = [1, 2, 3, 4].reduce((acc, curr) =&gt; acc + curr, 0); // 10
+
+// forEach: calls a function for each element
+numbers.forEach(num =&gt; console.log(num));
+
+// find: returns the first element that passes a test
+const found = numbers.find(num =&gt; num &gt; 3); // 4
+
+// some: tests if at least one element passes a test
+const hasEven = numbers.some(num =&gt; typeof num === 'number' &amp;&amp; num % 2 === 0); // true
+
+// every: tests if all elements pass a test
+const allEven = numbers.every(num =&gt; typeof num === 'number' &amp;&amp; num % 2 === 0); // false
+
+// sort: sorts the elements of an array
+numbers.sort((a, b) =&gt; a - b); // Numeric sort
+</code></pre>
+<h3>Objects</h3>
+<pre><code class="language-javascript">// Creating objects
+const person = {
+    firstName: &quot;John&quot;,
+    lastName: &quot;Doe&quot;,
+    age: 30,
+    hobbies: [&quot;reading&quot;, &quot;music&quot;, &quot;hiking&quot;],
+    address: {
+        street: &quot;123 Main St&quot;,
+        city: &quot;Anytown&quot;,
+        country: &quot;USA&quot;
+    },
+    fullName: function() {
+        return this.firstName + &quot; &quot; + this.lastName;
+    }
+};
+
+// Accessing properties
+console.log(person.firstName); // Dot notation
+console.log(person[&quot;lastName&quot;]); // Bracket notation
+
+// Adding or modifying properties
+person.email = &quot;john@example.com&quot;;
+person[&quot;phone&quot;] = &quot;555-1234&quot;;
+
+// Deleting properties
+delete person.age;
+
+// Object methods
+const keys = Object.keys(person); // Array of property names
+const values = Object.values(person); // Array of property values
+const entries = Object.entries(person); // Array of [key, value] pairs
+const hasProp = person.hasOwnProperty(&quot;email&quot;); // true
+
+// Object destructuring
+const { firstName, lastName, address: { city } } = person;
+console.log(firstName); // &quot;John&quot;
+console.log(city); // &quot;Anytown&quot;
+
+// Spread operator
+const personCopy = { ...person };
+
+// Object.assign
+const merged = Object.assign({}, person, { age: 31, job: &quot;developer&quot; });
+</code></pre>
+<h2>DOM Manipulation</h2>
+<p>The Document Object Model (DOM) is a programming interface for web documents. JavaScript can change all the HTML elements, attributes, and CSS styles in the page.</p>
+<pre><code class="language-javascript">// Selecting elements
+const element = document.getElementById(&quot;myId&quot;);
+const elements = document.getElementsByClassName(&quot;myClass&quot;);
+const tagElements = document.getElementsByTagName(&quot;p&quot;);
+const queryElement = document.querySelector(&quot;.myClass&quot;); // First match
+const queryElements = document.querySelectorAll(&quot;p.intro&quot;); // All matches
+
+// Changing HTML content
+element.innerHTML = &quot;&lt;span&gt;New HTML content&lt;/span&gt;&quot;;
+element.textContent = &quot;New text content&quot;; // Text only, safer
+element.innerText = &quot;New inner text&quot;; // Text only, respects CSS
+
+// Changing attributes
+element.setAttribute(&quot;href&quot;, &quot;https://example.com&quot;);
+const href = element.getAttribute(&quot;href&quot;);
+element.removeAttribute(&quot;disabled&quot;);
+
+// Changing CSS
+element.style.color = &quot;blue&quot;;
+element.style.backgroundColor = &quot;yellow&quot;;
+element.style.fontSize = &quot;16px&quot;;
+
+// Adding/removing CSS classes
+element.classList.add(&quot;active&quot;);
+element.classList.remove(&quot;hidden&quot;);
+element.classList.toggle(&quot;highlight&quot;);
+element.classList.contains(&quot;active&quot;); // Check if class exists
+
+// Creating new elements
+const newDiv = document.createElement(&quot;div&quot;);
+const textNode = document.createTextNode(&quot;Hello&quot;);
+newDiv.appendChild(textNode);
+
+// Adding elements to the DOM
+document.body.appendChild(newDiv); // Add at end
+element.prepend(newDiv); // Add as first child
+element.before(newDiv); // Add before element
+element.after(newDiv); // Add after element
+
+// Removing elements
+element.remove(); // Modern way
+element.parentNode.removeChild(element); // Older compatibility
+
+// Navigating the DOM
+const parent = element.parentNode;
+const children = element.children;
+const firstChild = element.firstElementChild;
+const nextSibling = element.nextElementSibling;
+</code></pre>
+<h2>Events</h2>
+<p>Events are actions or occurrences that happen in the browser.</p>
+<pre><code class="language-javascript">// Adding event listeners
+const button = document.querySelector(&quot;button&quot;);
+
+// Method 1: addEventListener
+button.addEventListener(&quot;click&quot;, function(event) {
+    console.log(&quot;Button clicked!&quot;);
+    console.log(event); // Event object contains information about the event
+});
+
+// Method 2: onclick property
+button.onclick = function() {
+    console.log(&quot;Button clicked via property!&quot;);
+};
+
+// Removing event listeners
+function handleClick() {
+    console.log(&quot;Clicked!&quot;);
+}
+button.addEventListener(&quot;click&quot;, handleClick);
+button.removeEventListener(&quot;click&quot;, handleClick);
+
+// Common events
+/* 
+- Mouse events: click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove
+- Keyboard events: keydown, keyup, keypress
+- Form events: submit, change, focus, blur
+- Window events: load, resize, scroll, unload
+- Drag events: dragstart, drag, dragend, drop
+*/
+
+// Event propagation
+/*
+Events in DOM propagate in two phases:
+1. Capturing phase (from window down to target)
+2. Bubbling phase (from target up to window)
+*/
+
+// Default: bubbling phase (false)
+element.addEventListener(&quot;click&quot;, handler);
+
+// Capturing phase (true as third parameter)
+element.addEventListener(&quot;click&quot;, handler, true);
+
+// Stop propagation
+element.addEventListener(&quot;click&quot;, function(event) {
+    event.stopPropagation();
+});
+
+// Prevent default behavior
+document.querySelector(&quot;form&quot;).addEventListener(&quot;submit&quot;, function(event) {
+    event.preventDefault(); // Stops form submission
+});
+</code></pre>
+<h2>Asynchronous JavaScript</h2>
+<p>JavaScript is single-threaded, but can perform asynchronous operations via callbacks, promises, and async/await.</p>
+<h3>Callbacks</h3>
+<pre><code class="language-javascript">// Simple callback example
+function fetchData(callback) {
+    setTimeout(() =&gt; {
+        callback(&quot;Data received&quot;);
+    }, 1000);
+}
+
+fetchData(function(data) {
+    console.log(data); // After 1 second: &quot;Data received&quot;
+});
+
+// Callback hell (nested callbacks)
+fetchUserData(function(user) {
+    fetchUserPosts(user.id, function(posts) {
+        fetchPostComments(posts[0].id, function(comments) {
+            // Deeply nested and hard to read
+            console.log(comments);
+        });
+    });
+});
+</code></pre>
+<h3>Promises</h3>
+<p>Promises represent a value that might be available now, later, or never.</p>
+<pre><code class="language-javascript">// Creating a promise
+const promise = new Promise((resolve, reject) =&gt; {
+    // Async operation
+    const success = true;
+    
+    if (success) {
+        resolve(&quot;Operation successful&quot;);
+    } else {
+        reject(&quot;Operation failed&quot;);
+    }
+});
+
+// Using promises
+promise
+    .then(result =&gt; {
+        console.log(result); // &quot;Operation successful&quot;
+        return &quot;Next step&quot;;
+    })
+    .then(newResult =&gt; {
+        console.log(newResult); // &quot;Next step&quot;
+    })
+    .catch(error =&gt; {
+        console.error(error);
+    })
+    .finally(() =&gt; {
+        console.log(&quot;Promise settled (fulfilled or rejected)&quot;);
+    });
+
+// Promise methods
+Promise.all([promise1, promise2]) // Resolves when all promises resolve, rejects if any reject
+    .then(results =&gt; console.log(results)); // Array of all results
+
+Promise.race([promise1, promise2]) // Resolves or rejects as soon as the first promise settles
+    .then(result =&gt; console.log(result));
+
+Promise.allSettled([promise1, promise2]) // Waits for all promises to settle
+    .then(results =&gt; console.log(results)); // Array of objects with status and value/reason
+
+Promise.any([promise1, promise2]) // Resolves with the first promise to fulfill
+    .then(result =&gt; console.log(result));
+</code></pre>
+<h3>Fetch API</h3>
+<p>The Fetch API provides a modern interface for making HTTP requests.</p>
+<pre><code class="language-javascript">// Basic GET request
+fetch('https://api.example.com/data')
+    .then(response =&gt; {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse JSON response
+    })
+    .then(data =&gt; {
+        console.log(data);
+    })
+    .catch(error =&gt; {
+        console.error('Fetch error:', error);
+    });
+
+// POST request with options
+fetch('https://api.example.com/posts', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer token123'
+    },
+    body: JSON.stringify({
+        title: 'New Post',
+        content: 'This is a new post.'
+    })
+})
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));
+</code></pre>
+<h3>Async/Await</h3>
+<p>Async/await is syntactic sugar over promises, making asynchronous code look more like synchronous code.</p>
+<pre><code class="language-javascript">// Async function declaration
+async function fetchUserData() {
+    try {
+        // await pauses execution until the promise resolves
+        const response = await fetch('https://api.example.com/user');
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch user');
+        }
+        
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error; // Re-throw to propagate
+    }
+}
+
+// Using an async function
+fetchUserData()
+    .then(user =&gt; console.log(user))
+    .catch(error =&gt; console.error(error));
+
+// Async function with multiple awaits (no callback hell)
+async function loadUserDetails() {
+    try {
+        const user = await fetchUserData();
+        const posts = await fetchUserPosts(user.id);
+        const comments = await fetchPostComments(posts[0].id);
+        
+        console.log(user, posts, comments);
+    } catch (error) {
+        console.error('Error in loadUserDetails:', error);
+    }
+}
+</code></pre>
+<h2>Error Handling</h2>
+<pre><code class="language-javascript">// Try-catch statement
+try {
+    // Code that might throw an error
+    const result = riskyOperation();
+    console.log(result);
+} catch (error) {
+    // Handle the error
+    console.error('An error occurred:', error.message);
+} finally {
+    // Code that runs regardless of whether an error occurred
+    console.log('Cleanup operations');
+}
+
+// Custom errors
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+// Throwing errors
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error('Division by zero');
+    }
+    return a / b;
+}
+
+// Error propagation
+function processData(data) {
+    try {
+        const result = processStep1(data);
+        return processStep2(result);
+    } catch (error) {
+        console.error('Processing error:', error);
+        throw error; // Re-throw for caller to handle
+    }
+}
+</code></pre>
+<h2>ES6+ Features</h2>
+<p>JavaScript has evolved with new features in recent versions. ES6 (ECMAScript 2015) was a major update that introduced many of these features, with additional ones added in yearly releases since then:</p>
+<h3>Template Literals</h3>
+<pre><code class="language-javascript">const name = &quot;John&quot;;
+const greeting = `Hello, ${name}! Today is ${new Date().toLocaleDateString()}.`;
+</code></pre>
+<h3>Destructuring</h3>
+<pre><code class="language-javascript">// Array destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+
+// Object destructuring
+const { name, age, job = &quot;Developer&quot; } = person;
+</code></pre>
+<h3>Spread/Rest Operators</h3>
+<pre><code class="language-javascript">// Spread (expanding)
+const newArray = [...oldArray, newItem];
+const newObject = { ...oldObject, newProp: value };
+
+// Rest (collecting)
+function logAll(first, ...others) {
+    console.log(first, others);
+}
+</code></pre>
+<h3>Arrow Functions</h3>
+<pre><code class="language-javascript">const add = (a, b) =&gt; a + b;
+const greet = name =&gt; `Hello, ${name}`;
+const createObject = () =&gt; ({ key: &quot;value&quot; });
+</code></pre>
+<h3>Classes</h3>
+<pre><code class="language-javascript">class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    greet() {
+        return `Hello, I'm ${this.name}`;
+    }
+    
+    static createAnonymous() {
+        return new Person(&quot;Anonymous&quot;, 0);
+    }
+}
+
+class Employee extends Person {
+    constructor(name, age, job) {
+        super(name, age);
+        this.job = job;
+    }
+    
+    work() {
+        return `${this.name} is working as a ${this.job}`;
+    }
+}
+</code></pre>
+<h3>Modules</h3>
+<pre><code class="language-javascript">// Exporting (file: math.js)
+export function add(a, b) {
+    return a + b;
+}
+export const PI = 3.14159;
+export default class Calculator { /* ... */ }
+
+// Importing (another file)
+import Calculator, { add, PI as MathPI } from './math.js';
+</code></pre>
+<h3>Map and Set</h3>
+<pre><code class="language-javascript">// Map: key-value pairs (any type of keys)
+const userMap = new Map();
+userMap.set('user1', { name: 'John' });
+userMap.set(42, 'number key');
+userMap.get('user1'); // { name: 'John' }
+
+// Set: collection of unique values
+const uniqueNumbers = new Set([1, 2, 3, 2, 1]);
+console.log([...uniqueNumbers]); // [1, 2, 3]
+</code></pre>
+<h3>Optional Chaining</h3>
+<pre><code class="language-javascript">// Instead of: user &amp;&amp; user.address &amp;&amp; user.address.city
+const city = user?.address?.city; // Undefined if any part is null/undefined
+</code></pre>
+<h3>Nullish Coalescing</h3>
+<pre><code class="language-javascript">// Use fallback only if value is null or undefined
+const username = user.name ?? 'Anonymous'; // '' is a valid name
+</code></pre>
+<h2>JavaScript Best Practices</h2>
+<ol>
+<li>
+<p><strong>Use strict mode</strong> to catch common coding mistakes</p>
+<pre><code class="language-javascript">'use strict';
+</code></pre>
+</li>
+<li>
+<p><strong>Declare variables properly</strong> - prefer <code>const</code> when possible, then <code>let</code> if needed</p>
+</li>
+<li>
+<p><strong>Use meaningful variable and function names</strong> that clearly explain their purpose</p>
+</li>
+<li>
+<p><strong>Write modular code</strong> - small, focused functions that do one thing well</p>
+</li>
+<li>
+<p><strong>Comment your code</strong> where necessary, but strive for self-documenting code</p>
+</li>
+<li>
+<p><strong>Handle errors gracefully</strong> with try-catch blocks</p>
+</li>
+<li>
+<p><strong>Avoid global variables</strong> to prevent naming conflicts</p>
+</li>
+<li>
+<p><strong>Use modern JavaScript features</strong> like destructuring, arrow functions, and template literals</p>
+</li>
+<li>
+<p><strong>Follow a style guide</strong> like Airbnb or Google's JavaScript style guide</p>
+</li>
+<li>
+<p><strong>Use linting tools</strong> like ESLint to catch errors and enforce coding standards</p>
+</li>
+<li>
+<p><strong>Test your code</strong> with frameworks like Jest or Mocha</p>
+</li>
+<li>
+<p><strong>Optimize for performance</strong> by avoiding unnecessary DOM manipulation and using efficient algorithms</p>
+</li>
+</ol>
+<h2>Debugging JavaScript</h2>
+<h3>Console Methods</h3>
+<pre><code class="language-javascript">console.log(&quot;Basic logging&quot;);
+console.error(&quot;Error message&quot;);
+console.warn(&quot;Warning message&quot;);
+console.info(&quot;Informational message&quot;);
+console.table([{ name: &quot;John&quot;, age: 30 }, { name: &quot;Jane&quot;, age: 25 }]);
+console.time(&quot;Timer&quot;);
+// Code to measure
+console.timeEnd(&quot;Timer&quot;);
+console.group(&quot;Grouped messages&quot;);
+console.log(&quot;Message in group&quot;);
+console.groupEnd();
+</code></pre>
+<h3>Breakpoints</h3>
+<ul>
+<li>Use the <code>debugger</code> statement to set a breakpoint in code</li>
+<li>Browser DevTools allow setting breakpoints visually</li>
+</ul>
+<h3>Browser DevTools</h3>
+<ul>
+<li>Sources panel for debugging scripts</li>
+<li>Network panel for monitoring requests</li>
+<li>Performance panel for optimizing code</li>
+<li>Memory panel for finding memory leaks</li>
+</ul>
+<h2>Popular JavaScript Libraries and Frameworks</h2>
+<h3>DOM Manipulation</h3>
+<ul>
+<li><strong>jQuery</strong>: Simplified DOM manipulation (less needed with modern JS)</li>
+</ul>
+<h3>Front-end Frameworks</h3>
+<ul>
+<li><strong>React</strong>: Component-based library for building user interfaces</li>
+<li><strong>Vue.js</strong>: Progressive framework for building UIs</li>
+<li><strong>Angular</strong>: Comprehensive framework for web applications</li>
+<li><strong>Svelte</strong>: Compiler that generates minimal JavaScript</li>
+</ul>
+<h3>State Management</h3>
+<ul>
+<li><strong>Redux</strong>: Predictable state container for JavaScript apps</li>
+<li><strong>MobX</strong>: Simple, scalable state management</li>
+<li><strong>Zustand</strong>: Lightweight state management with hooks</li>
+</ul>
+<h3>Animation</h3>
+<ul>
+<li><strong>GSAP</strong>: Professional-grade animation for the web</li>
+<li><strong>Three.js</strong>: 3D library that uses WebGL</li>
+</ul>
+<h3>Utility Libraries</h3>
+<ul>
+<li><strong>Lodash</strong>: Utility functions for common programming tasks</li>
+<li><strong>Moment.js/date-fns</strong>: Date manipulation and formatting</li>
+<li><strong>Axios</strong>: Promise-based HTTP client</li>
+</ul>
+<h3>Full-stack Frameworks</h3>
+<ul>
+<li><strong>Next.js</strong>: React framework with SSR and static site generation</li>
+<li><strong>Nuxt.js</strong>: Vue framework with similar features to Next.js</li>
+<li><strong>SvelteKit</strong>: Application framework for Svelte</li>
+</ul>
+<h2>Next Steps in JavaScript Learning</h2>
+<ol>
+<li><strong>Master the fundamentals</strong> - variables, functions, objects, arrays, and control flow</li>
+<li><strong>Understand async JavaScript</strong> deeply - callbacks, promises, and async/await</li>
+<li><strong>Learn DOM manipulation</strong> for interactive web pages</li>
+<li><strong>Explore modern JavaScript features</strong> in ES6+</li>
+<li><strong>Study a popular framework</strong> like React, Vue, or Angular</li>
+<li><strong>Learn state management</strong> patterns and libraries</li>
+<li><strong>Explore back-end JavaScript</strong> with Node.js</li>
+<li><strong>Study testing frameworks</strong> like Jest or Mocha</li>
+<li><strong>Learn TypeScript</strong> for type safety</li>
+<li><strong>Practice building projects</strong> to apply your knowledge</li>
+</ol>
+<p>JavaScript's versatility makes it valuable in virtually all web development contexts, from front-end to back-end, mobile apps to desktop applications, and even game development.</p>
+<p>By mastering JavaScript along with HTML and CSS, you'll have the essential skills to build modern web applications.</p>
+
+            </div>
+        </main>
+        <footer>
+            <p>Made by Lsbn - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="../../styles/style.css" rel="stylesheet">
+    <title>C</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <img src="../../images/logo.png" alt="Logo">
+                <ul>
+                    <li><a class="link nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="link nav-link" href="../languages/html.html">HTML</a></li>
+                    <li><a class="link nav-link" href="../languages/css.html">CSS</a></li>
+                    <li><a class="link nav-link" href="../languages/javascript.html">JavaScript</a></li>
+                    <li><a class="link nav-link" href="../languages/python.html">Python</a></li>
+                    <li><a class="link nav-link" href="../languages/c.html">C</a></li>
+                    <li><a class="link nav-link" href="../frameworks/react.html">React</a></li>
+                    <li><a class="link nav-link" href="../frameworks/nodejs.html">Node.js</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container introduction">
+                <h1>Introduction to C Programming</h1>
+<p>C is a general-purpose, procedural programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It was originally designed for the UNIX operating system and has since become one of the most influential and widely used programming languages in history. C combines low-level control with high-level abstractions, making it both powerful and flexible.</p>
+<h2>The Importance of C</h2>
+<p>C's significance in the computing world is immense:</p>
+<ul>
+<li>It forms the foundation for many other programming languages (C++, C#, Objective-C)</li>
+<li>It remains essential for operating system development</li>
+<li>It provides the basis for core libraries used by higher-level languages</li>
+<li>It's crucial for embedded systems and hardware programming</li>
+<li>It enables high-performance applications where efficiency matters</li>
+</ul>
+<p>Despite its age, C continues to be relevant because it provides direct memory access, minimal runtime overhead, and close-to-hardware operations that many modern languages cannot match.</p>
+<h2>C Program Structure</h2>
+<p>A simple C program looks like this:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;
+}
+</code></pre>
+<p>Let's break down this structure:</p>
+<ul>
+<li><code>#include &lt;stdio.h&gt;</code>: A preprocessor directive that includes the standard input/output library</li>
+<li><code>int main()</code>: The main function, where program execution begins</li>
+<li><code>{ }</code>: Curly braces define a block of code</li>
+<li><code>printf()</code>: A function from the stdio library that prints to the console</li>
+<li><code>return 0;</code>: Returns a value to indicate successful program execution</li>
+</ul>
+<h2>Basic Syntax Elements</h2>
+<h3>Preprocessor Directives</h3>
+<p>Preprocessor directives begin with <code>#</code> and are processed before compilation:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;    // Include standard library headers
+#include &quot;myfile.h&quot;   // Include user-defined headers
+#define MAX 100       // Define a constant
+#ifdef DEBUG          // Conditional compilation
+#endif
+</code></pre>
+<h3>Variables and Data Types</h3>
+<p>C provides several basic data types:</p>
+<pre><code class="language-c">int i = 10;              // Integer
+float f = 3.14;          // Single-precision floating point
+double d = 3.14159265;   // Double-precision floating point
+char c = 'A';            // Single character
+char str[] = &quot;Hello&quot;;    // String (array of characters)
+_Bool b = 1;             // Boolean (C99 standard)
+</code></pre>
+<p>Type modifiers can adjust the range or behavior of these types:</p>
+<pre><code class="language-c">short int smallNum = 32767;
+long int bigNum = 2147483647;
+unsigned int positiveOnly = 65535;
+</code></pre>
+<h3>Constants</h3>
+<pre><code class="language-c">const int MAX_USERS = 100;    // Constant variable
+#define PI 3.14159            // Preprocessor constant
+
+// Character and string literals
+char newline = '\n';
+char tab = '\t';
+char *message = &quot;This is a string literal&quot;;
+
+// Numeric literals
+int decimal = 42;
+int octal = 052;         // Prefix with 0
+int hexadecimal = 0x2A;  // Prefix with 0x
+float scientific = 3.14e2; // 3.14 * 10^2 = 314.0
+</code></pre>
+<h3>Operators</h3>
+<p>C offers a rich set of operators:</p>
+<pre><code class="language-c">// Arithmetic operators
+int sum = a + b;
+int difference = a - b;
+int product = a * b;
+int quotient = a / b;
+int remainder = a % b;
+int increment = ++a;  // Pre-increment
+int postIncrement = a++;  // Post-increment
+
+// Assignment operators
+a += b;  // Same as a = a + b
+a -= b;  // Same as a = a - b
+a *= b;  // Same as a = a * b
+a /= b;  // Same as a = a / b
+a %= b;  // Same as a = a % b
+
+// Comparison operators
+_Bool equal = (a == b);
+_Bool notEqual = (a != b);
+_Bool greater = (a &gt; b);
+_Bool less = (a &lt; b);
+_Bool greaterEqual = (a &gt;= b);
+_Bool lessEqual = (a &lt;= b);
+
+// Logical operators
+_Bool andResult = (condition1 &amp;&amp; condition2);
+_Bool orResult = (condition1 || condition2);
+_Bool notResult = !condition;
+
+// Bitwise operators
+int bitwiseAND = a &amp; b;
+int bitwiseOR = a | b;
+int bitwiseXOR = a ^ b;
+int bitwiseNOT = ~a;
+int leftShift = a &lt;&lt; 2;  // Shift left 2 bits
+int rightShift = a &gt;&gt; 1; // Shift right 1 bit
+
+// Miscellaneous operators
+int size = sizeof(int);  // Size in bytes
+int conditional = (a &gt; b) ? a : b;  // Ternary operator
+</code></pre>
+<h3>Control Structures</h3>
+<h4>Conditional Statements</h4>
+<pre><code class="language-c">// If-else statement
+if (condition) {
+    // Code executed if condition is true
+} else if (another_condition) {
+    // Code executed if another_condition is true
+} else {
+    // Code executed if all conditions are false
+}
+
+// Switch statement
+switch (expression) {
+    case value1:
+        // Code executed if expression equals value1
+        break;
+    case value2:
+        // Code executed if expression equals value2
+        break;
+    default:
+        // Code executed if no matching case
+}
+</code></pre>
+<h4>Loops</h4>
+<pre><code class="language-c">// For loop
+for (int i = 0; i &lt; 10; i++) {
+    // Repeats code block while i &lt; 10
+}
+
+// While loop
+while (condition) {
+    // Repeats code block while condition is true
+}
+
+// Do-while loop (executes at least once)
+do {
+    // Code block executed at least once
+} while (condition);
+
+// Loop control
+continue;  // Skip to next iteration
+break;     // Exit the loop
+</code></pre>
+<h2>Functions</h2>
+<p>Functions are reusable code blocks that perform specific tasks:</p>
+<pre><code class="language-c">// Function declaration (prototype)
+return_type function_name(parameter_list);
+
+// Function definition
+return_type function_name(parameter_list) {
+    // Code block
+    return value;  // Optional return statement
+}
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-c">// Function prototype
+int add(int a, int b);
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function call
+int result = add(5, 3);  // result = 8
+</code></pre>
+<h3>Parameter Passing</h3>
+<p>C passes parameters by value, meaning functions work with copies of the original values:</p>
+<pre><code class="language-c">void changeValue(int x) {
+    x = 100;  // Only changes the local copy
+}
+
+int main() {
+    int num = 10;
+    changeValue(num);
+    printf(&quot;%d\n&quot;, num);  // Still prints 10
+    return 0;
+}
+</code></pre>
+<p>To modify original values, use pointers:</p>
+<pre><code class="language-c">void changeValue(int *x) {
+    *x = 100;  // Changes the value at the address x
+}
+
+int main() {
+    int num = 10;
+    changeValue(&amp;num);
+    printf(&quot;%d\n&quot;, num);  // Prints 100
+    return 0;
+}
+</code></pre>
+<h2>Arrays and Strings</h2>
+<h3>Arrays</h3>
+<p>Arrays are collections of elements of the same type:</p>
+<pre><code class="language-c">// Array declaration and initialization
+int numbers[5] = {1, 2, 3, 4, 5};
+
+// Accessing array elements (zero-indexed)
+int third = numbers[2];  // Gets the third element (value 3)
+
+// Multidimensional arrays
+int matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Accessing multidimensional array elements
+int center = matrix[1][1];  // Value 5
+</code></pre>
+<h3>Strings</h3>
+<p>In C, strings are arrays of characters terminated by a null character <code>'\0'</code>:</p>
+<pre><code class="language-c">// String declaration and initialization
+char greeting[] = &quot;Hello&quot;;  // Compiler adds null terminator
+
+// Accessing individual characters
+char firstChar = greeting[0];  // 'H'
+
+// String input/output
+char name[50];
+printf(&quot;Enter your name: &quot;);
+scanf(&quot;%s&quot;, name);  // Warning: could cause buffer overflow
+
+// Safer string input
+fgets(name, 50, stdin);
+
+// Common string functions (require string.h)
+#include &lt;string.h&gt;
+int length = strlen(name);         // String length
+char *result = strcpy(dest, src);  // Copy string
+char *result = strcat(dest, src);  // Concatenate strings
+int comparison = strcmp(s1, s2);   // Compare strings
+</code></pre>
+<h2>Pointers</h2>
+<p>Pointers are variables that store memory addresses:</p>
+<pre><code class="language-c">// Pointer declaration and initialization
+int num = 10;
+int *ptr = &amp;num;  // ptr holds the address of num
+
+// Dereferencing (accessing the value at the address)
+int value = *ptr;  // value is 10
+
+// Pointer arithmetic
+int array[5] = {10, 20, 30, 40, 50};
+int *p = array;  // Points to first element
+int second = *(p + 1);  // Value 20 (second element)
+</code></pre>
+<h3>Dynamic Memory Allocation</h3>
+<p>C allows dynamic memory allocation through functions from <code>stdlib.h</code>:</p>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+
+// Allocate memory for a single integer
+int *ptr = (int *)malloc(sizeof(int));
+*ptr = 10;
+
+// Allocate memory for an array of integers
+int *array = (int *)malloc(5 * sizeof(int));
+for (int i = 0; i &lt; 5; i++) {
+    array[i] = i + 1;
+}
+
+// Allocate and initialize memory (calloc)
+int *zeros = (int *)calloc(5, sizeof(int));  // Initializes to 0
+
+// Resize allocated memory
+array = (int *)realloc(array, 10 * sizeof(int));
+
+// Free allocated memory when done
+free(ptr);
+free(array);
+free(zeros);
+</code></pre>
+<h2>Structures and Unions</h2>
+<h3>Structures</h3>
+<p>Structures group related variables of different types:</p>
+<pre><code class="language-c">// Structure definition
+struct Person {
+    char name[50];
+    int age;
+    float height;
+};
+
+// Declaring structure variables
+struct Person person1;
+
+// Initializing structures
+struct Person person2 = {&quot;John&quot;, 30, 5.9};
+
+// Accessing structure members
+strcpy(person1.name, &quot;Alice&quot;);
+person1.age = 25;
+person1.height = 5.5;
+
+// Structure pointers
+struct Person *pPerson = &amp;person1;
+printf(&quot;%s\n&quot;, pPerson-&gt;name);  // Arrow operator for pointers
+</code></pre>
+<h3>Typedef</h3>
+<p><code>typedef</code> creates aliases for existing types:</p>
+<pre><code class="language-c">typedef struct Person {
+    char name[50];
+    int age;
+} Person;
+
+// Now we can use Person directly
+Person person3 = {&quot;Bob&quot;, 40};
+</code></pre>
+<h3>Unions</h3>
+<p>Unions allow different data types to share the same memory location:</p>
+<pre><code class="language-c">union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+union Data data;
+data.i = 10;      // Uses memory as integer
+printf(&quot;%d\n&quot;, data.i);  // Prints 10
+
+data.f = 3.14;    // Now uses same memory as float
+printf(&quot;%f\n&quot;, data.f);  // Prints 3.14
+printf(&quot;%d\n&quot;, data.i);  // May print garbage, memory now interpreted as float
+</code></pre>
+<h2>File Operations</h2>
+<p>C provides functions to work with files:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Opening a file
+FILE *file = fopen(&quot;example.txt&quot;, &quot;w&quot;);  // Write mode
+
+// Check if file opened successfully
+if (file == NULL) {
+    printf(&quot;Error opening file!\n&quot;);
+    return 1;
+}
+
+// Writing to a file
+fprintf(file, &quot;Hello, World!\n&quot;);
+fputs(&quot;Another line\n&quot;, file);
+fputc('X', file);  // Write a single character
+
+// Closing a file
+fclose(file);
+
+// Reading from a file
+file = fopen(&quot;example.txt&quot;, &quot;r&quot;);  // Read mode
+if (file) {
+    char buffer[100];
+    
+    // Read line by line
+    while (fgets(buffer, 100, file)) {
+        printf(&quot;%s&quot;, buffer);
+    }
+    
+    // Or read character by character
+    /*
+    int c;
+    while ((c = fgetc(file)) != EOF) {
+        putchar(c);
+    }
+    */
+    
+    fclose(file);
+}
+
+// Binary file operations
+FILE *binFile = fopen(&quot;data.bin&quot;, &quot;wb&quot;);  // Write binary
+if (binFile) {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    fwrite(numbers, sizeof(int), 5, binFile);
+    fclose(binFile);
+}
+
+binFile = fopen(&quot;data.bin&quot;, &quot;rb&quot;);  // Read binary
+if (binFile) {
+    int readNumbers[5];
+    fread(readNumbers, sizeof(int), 5, binFile);
+    fclose(binFile);
+}
+</code></pre>
+<h2>Preprocessor Directives</h2>
+<p>The preprocessor modifies your code before compilation:</p>
+<pre><code class="language-c">// Include headers
+#include &lt;stdio.h&gt;  // System header
+#include &quot;myfile.h&quot; // User-defined header
+
+// Macro definitions
+#define PI 3.14159
+#define SQUARE(x) ((x) * (x))
+#define MAX(a, b) ((a) &gt; (b) ? (a) : (b))
+
+// Conditional compilation
+#define DEBUG 1
+
+#if DEBUG
+    printf(&quot;Debug mode is on\n&quot;);
+#else
+    printf(&quot;Debug mode is off\n&quot;);
+#endif
+
+#ifdef WINDOWS
+    // Windows-specific code
+#elif defined(LINUX)
+    // Linux-specific code
+#else
+    // Default code
+#endif
+
+#undef DEBUG  // Undefine a macro
+</code></pre>
+<h2>Command Line Arguments</h2>
+<p>C programs can accept arguments from the command line:</p>
+<pre><code class="language-c">int main(int argc, char *argv[]) {
+    // argc: argument count
+    // argv: argument vector (array of strings)
+    
+    printf(&quot;Program name: %s\n&quot;, argv[0]);
+    
+    for (int i = 1; i &lt; argc; i++) {
+        printf(&quot;Argument %d: %s\n&quot;, i, argv[i]);
+    }
+    
+    return 0;
+}
+</code></pre>
+<h2>Error Handling</h2>
+<p>C handles errors through return codes and the global <code>errno</code> variable:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+
+FILE *file = fopen(&quot;nonexistent.txt&quot;, &quot;r&quot;);
+if (file == NULL) {
+    printf(&quot;Error opening file: %s\n&quot;, strerror(errno));
+    exit(EXIT_FAILURE);
+}
+
+// Exit functions
+exit(0);            // Normal termination
+exit(EXIT_SUCCESS); // Normal termination (same as exit(0))
+exit(EXIT_FAILURE); // Abnormal termination
+
+// Assert for debugging
+#include &lt;assert.h&gt;
+assert(ptr != NULL);  // Aborts if condition is false
+</code></pre>
+<h2>Memory Management Best Practices</h2>
+<p>Memory management in C requires careful attention:</p>
+<ol>
+<li><strong>Always initialize pointers</strong> either to a valid address or NULL</li>
+<li><strong>Check for allocation failures</strong>:<pre><code class="language-c">int *ptr = malloc(size);
+if (ptr == NULL) {
+    // Handle error
+}
+</code></pre>
+</li>
+<li><strong>Free memory when done</strong>:<pre><code class="language-c">free(ptr);
+ptr = NULL;  // Avoid dangling pointers
+</code></pre>
+</li>
+<li><strong>Match allocations and deallocations</strong> (malloc/free, calloc/free)</li>
+<li><strong>Avoid memory leaks</strong> by freeing all allocated memory</li>
+<li><strong>Avoid using memory after freeing it</strong> (use-after-free bugs)</li>
+<li><strong>Be careful with pointer arithmetic</strong> to avoid buffer overflows</li>
+</ol>
+<h2>Debugging Techniques</h2>
+<p>Common debugging approaches in C:</p>
+<ol>
+<li>
+<p><strong>Print debugging</strong>:</p>
+<pre><code class="language-c">printf(&quot;Debug: value = %d\n&quot;, value);
+</code></pre>
+</li>
+<li>
+<p><strong>Using assert</strong>:</p>
+<pre><code class="language-c">#include &lt;assert.h&gt;
+assert(ptr != NULL);
+</code></pre>
+</li>
+<li>
+<p><strong>Using GDB</strong> (GNU Debugger):</p>
+<pre><code>$ gcc -g program.c -o program  # Compile with debug info
+$ gdb ./program               # Start debugger
+(gdb) break main              # Set breakpoint
+(gdb) run                     # Run program
+(gdb) next                    # Step over
+(gdb) step                    # Step into
+(gdb) print variable          # Print variable value
+(gdb) continue                # Continue execution
+(gdb) quit                    # Exit GDB
+</code></pre>
+</li>
+<li>
+<p><strong>Memory debugging tools</strong>:</p>
+<ul>
+<li>Valgrind for memory leaks and errors</li>
+<li>AddressSanitizer (ASAN) for memory bugs</li>
+</ul>
+</li>
+</ol>
+<h2>Common C Libraries</h2>
+<p>C comes with several standard libraries:</p>
+<ol>
+<li>
+<p><strong>stdio.h</strong> - Input/output functions</p>
+<ul>
+<li><code>printf()</code>, <code>scanf()</code>, <code>fprintf()</code>, <code>fscanf()</code>, <code>fopen()</code>, <code>fclose()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>stdlib.h</strong> - General utilities</p>
+<ul>
+<li><code>malloc()</code>, <code>free()</code>, <code>rand()</code>, <code>exit()</code>, <code>atoi()</code>, <code>qsort()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>string.h</strong> - String manipulation</p>
+<ul>
+<li><code>strcpy()</code>, <code>strcat()</code>, <code>strcmp()</code>, <code>strlen()</code>, <code>strstr()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>math.h</strong> - Mathematical functions</p>
+<ul>
+<li><code>sin()</code>, <code>cos()</code>, <code>sqrt()</code>, <code>pow()</code>, <code>fabs()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>time.h</strong> - Date and time</p>
+<ul>
+<li><code>time()</code>, <code>localtime()</code>, <code>strftime()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>ctype.h</strong> - Character handling</p>
+<ul>
+<li><code>isalpha()</code>, <code>isdigit()</code>, <code>toupper()</code>, <code>tolower()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>limits.h</strong> - Size limits of types</p>
+<ul>
+<li><code>INT_MAX</code>, <code>INT_MIN</code>, <code>CHAR_BIT</code></li>
+</ul>
+</li>
+<li>
+<p><strong>stdbool.h</strong> (C99) - Boolean type</p>
+<ul>
+<li><code>bool</code>, <code>true</code>, <code>false</code></li>
+</ul>
+</li>
+</ol>
+<h2>C Standards Evolution</h2>
+<p>C has evolved through several standards:</p>
+<ul>
+<li><strong>K&amp;R C</strong> (1978) - Original C</li>
+<li><strong>ANSI C/C89</strong> (1989) - First standardized version</li>
+<li><strong>C99</strong> (1999) - Added inline functions, variable-length arrays, bool type</li>
+<li><strong>C11</strong> (2011) - Added multithreading support, safer functions</li>
+<li><strong>C17/C18</strong> (2018) - Bug fixes to C11</li>
+<li><strong>C23</strong> (in development) - Next upcoming standard</li>
+</ul>
+<h2>Compilation Process</h2>
+<p>The C compilation process has several stages:</p>
+<ol>
+<li>
+<p><strong>Preprocessing</strong> - Expand macros, include files</p>
+<pre><code>$ gcc -E program.c -o program.i
+</code></pre>
+</li>
+<li>
+<p><strong>Compilation</strong> - Convert to assembly code</p>
+<pre><code>$ gcc -S program.i -o program.s
+</code></pre>
+</li>
+<li>
+<p><strong>Assembly</strong> - Convert to object code</p>
+<pre><code>$ gcc -c program.s -o program.o
+</code></pre>
+</li>
+<li>
+<p><strong>Linking</strong> - Create executable</p>
+<pre><code>$ gcc program.o -o program
+</code></pre>
+</li>
+</ol>
+<p>Complete compilation in one step:</p>
+<pre><code>$ gcc program.c -o program
+</code></pre>
+<h2>Best Practices in C Programming</h2>
+<ol>
+<li><strong>Always initialize variables</strong> before use</li>
+<li><strong>Check return values</strong> from functions that can fail</li>
+<li><strong>Use meaningful variable and function names</strong></li>
+<li><strong>Comment your code</strong> appropriately</li>
+<li><strong>Be careful with memory management</strong></li>
+<li><strong>Validate all input</strong> before processing</li>
+<li><strong>Follow a consistent coding style</strong></li>
+<li><strong>Use enums instead of magic numbers</strong><pre><code class="language-c">enum Days {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY};
+</code></pre>
+</li>
+<li><strong>Use const for values that shouldn't change</strong></li>
+<li><strong>Create modular code</strong> with clearly defined functions</li>
+<li><strong>Avoid global variables</strong> when possible</li>
+<li><strong>Check for integer overflow/underflow</strong> in calculations</li>
+</ol>
+<h2>Common Pitfalls and Mistakes</h2>
+<ol>
+<li><strong>Off-by-one errors</strong> in array access</li>
+<li><strong>Buffer overflows</strong> (writing beyond array boundaries)</li>
+<li><strong>Memory leaks</strong> (forgetting to free allocated memory)</li>
+<li><strong>Null pointer dereferences</strong> (using a null pointer)</li>
+<li><strong>Using uninitialized variables</strong></li>
+<li><strong>String termination errors</strong> (forgetting the null terminator)</li>
+<li><strong>Integer division truncation</strong>:<pre><code class="language-c">float result = 5 / 2;  // Result is 2.0, not 2.5
+float correct = 5.0 / 2.0;  // Result is 2.5
+</code></pre>
+</li>
+<li><strong>Confusing assignment (<code>=</code>) with equality comparison (<code>==</code>)</strong>:<pre><code class="language-c">if (x = 5) {  // Assigns 5 to x, then evaluates as true
+    // This code always executes
+}
+</code></pre>
+</li>
+</ol>
+<h2>Next Steps in C Programming</h2>
+<ol>
+<li><strong>Master pointers and memory management</strong></li>
+<li><strong>Learn advanced data structures</strong> (linked lists, trees, graphs)</li>
+<li><strong>Study algorithms and their implementation in C</strong></li>
+<li><strong>Explore low-level concepts</strong> like bit manipulation</li>
+<li><strong>Learn about concurrency and multithreading</strong></li>
+<li><strong>Understand operating system concepts</strong></li>
+<li><strong>Explore embedded systems programming</strong></li>
+<li><strong>Contribute to open source C projects</strong></li>
+</ol>
+<h2>Learning Resources</h2>
+<ol>
+<li>
+<p><strong>Books</strong>:</p>
+<ul>
+<li>&quot;The C Programming Language&quot; by Kernighan and Ritchie</li>
+<li>&quot;C Programming: A Modern Approach&quot; by K.N. King</li>
+<li>&quot;Programming in C&quot; by Stephen Kochan</li>
+</ul>
+</li>
+<li>
+<p><strong>Online Resources</strong>:</p>
+<ul>
+<li>cprogramming.com</li>
+<li>learn-c.org</li>
+<li>tutorialspoint.com/c</li>
+<li>GeeksforGeeks C Programming</li>
+<li>Linux man pages for C standard library functions</li>
+</ul>
+</li>
+<li>
+<p><strong>Practice Platforms</strong>:</p>
+<ul>
+<li>LeetCode</li>
+<li>HackerRank</li>
+<li>CodeChef</li>
+<li>Project Euler</li>
+</ul>
+</li>
+</ol>
+<p>C remains a fundamental language in computer science and software development. Its influence extends to nearly every area of computing, from operating systems to embedded devices to high-performance applications. Understanding C not only gives you powerful programming capabilities but also provides insight into how computers work at a lower level.</p>
+
+            </div>
+        </main>
+        <footer>
+            <p>Made by Lsbn - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>

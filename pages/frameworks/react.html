@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="../../styles/style.css" rel="stylesheet">
+    <title>React</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <img src="../../images/logo.png" alt="Logo">
+                <ul>
+                    <li><a class="link nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="link nav-link" href="../languages/html.html">HTML</a></li>
+                    <li><a class="link nav-link" href="../languages/css.html">CSS</a></li>
+                    <li><a class="link nav-link" href="../languages/javascript.html">JavaScript</a></li>
+                    <li><a class="link nav-link" href="../languages/python.html">Python</a></li>
+                    <li><a class="link nav-link" href="../languages/c.html">C</a></li>
+                    <li><a class="link nav-link" href="../frameworks/react.html">React</a></li>
+                    <li><a class="link nav-link" href="../frameworks/nodejs.html">Node.js</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container introduction">
+                <h1>Introduction to React</h1>
+<p>React is a JavaScript library for building user interfaces, particularly single-page applications. Developed and maintained by Facebook (now Meta), React has become one of the most popular front-end libraries in web development due to its efficiency, flexibility, and component-based architecture.</p>
+<h2>Core Concepts of React</h2>
+<h3>Component-Based Architecture</h3>
+<p>At the heart of React is the concept of components. Components are reusable, self-contained pieces of code that return HTML via a render function. React applications are built by composing many components together to create complex user interfaces.</p>
+<pre><code class="language-jsx">// A simple React component
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+// Using the component
+const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;
+</code></pre>
+<h3>JSX (JavaScript XML)</h3>
+<p>JSX is a syntax extension to JavaScript that looks similar to HTML. It allows you to write HTML structures in the same file as JavaScript code, making it easier to visualize the UI you're building.</p>
+<pre><code class="language-jsx">const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+</code></pre>
+<p>Behind the scenes, JSX is transformed into regular JavaScript function calls:</p>
+<pre><code class="language-javascript">const element = React.createElement('h1', null, 'Hello, world!');
+</code></pre>
+<h3>Virtual DOM</h3>
+<p>React uses a Virtual DOM to improve performance. Instead of updating the actual DOM directly when state changes, React:</p>
+<ol>
+<li>Creates a virtual representation of the DOM in memory</li>
+<li>When state changes, creates a new virtual DOM tree</li>
+<li>Compares the new virtual DOM with the previous one (diffing)</li>
+<li>Calculates the minimal number of changes needed to update the real DOM</li>
+<li>Updates only what needs to be changed in the actual DOM</li>
+</ol>
+<p>This approach significantly improves performance compared to directly manipulating the DOM for every state change.</p>
+<h3>One-Way Data Flow</h3>
+<p>React implements one-way data binding, also known as unidirectional data flow. Data flows from parent components down to child components via props. When state changes in a parent component, the children that depend on that state are re-rendered automatically.</p>
+<h3>Declarative UI</h3>
+<p>React uses a declarative paradigm for building UIs. You tell React what state you want the UI to be in, and React ensures the DOM matches that state. This declarative approach makes code more predictable and easier to debug.</p>
+<h2>Setting Up a React Project</h2>
+<h3>Using Create React App</h3>
+<p>Create React App is an officially supported way to create single-page React applications with no build configuration.</p>
+<pre><code class="language-bash"># Install Create React App globally (if not already installed)
+npm install -g create-react-app
+
+# Create a new React application
+npx create-react-app my-app
+
+# Navigate to the project directory
+cd my-app
+
+# Start the development server
+npm start
+</code></pre>
+<h3>Using Vite (Modern Alternative)</h3>
+<p>Vite is a newer, faster build tool that's becoming popular for React development:</p>
+<pre><code class="language-bash"># Create a new React project with Vite
+npm create vite@latest my-react-app -- --template react
+
+# Navigate to the project directory
+cd my-react-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+</code></pre>
+<h2>React Components</h2>
+<h3>Functional Components</h3>
+<p>Functional components are JavaScript functions that return JSX. They're simpler and, with the introduction of Hooks, can now handle state and lifecycle methods.</p>
+<pre><code class="language-jsx">function Greeting(props) {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}
+
+// Arrow function syntax
+const Greeting = (props) =&gt; {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+};
+</code></pre>
+<h3>Class Components</h3>
+<p>Class components are ES6 classes that extend from <code>React.Component</code> and have a render method that returns JSX.</p>
+<pre><code class="language-jsx">import React, { Component } from 'react';
+
+class Greeting extends Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}!&lt;/h1&gt;;
+  }
+}
+</code></pre>
+<p>While class components are still supported, functional components with Hooks are now the recommended approach in React.</p>
+<h2>Props and State</h2>
+<h3>Props</h3>
+<p>Props (short for properties) are how components receive data from their parent. Props are read-only and help maintain the one-way data flow in React applications.</p>
+<pre><code class="language-jsx">// Parent component passing props
+function App() {
+  return &lt;Greeting name=&quot;John&quot; age={25} /&gt;;
+}
+
+// Child component receiving props
+function Greeting(props) {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;
+      &lt;p&gt;You are {props.age} years old.&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3>State</h3>
+<p>State is data managed within a component. Unlike props, state can be changed by the component itself.</p>
+<p>In class components, state is defined in the constructor:</p>
+<pre><code class="language-jsx">class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment = () =&gt; {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+        &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+<p>In functional components, state is managed using the <code>useState</code> Hook:</p>
+<pre><code class="language-jsx">import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () =&gt; {
+    setCount(count + 1);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={increment}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h2>React Hooks</h2>
+<p>Hooks were introduced in React 16.8 and allow functional components to use state and other React features that were previously only available in class components.</p>
+<h3>useState</h3>
+<p>The <code>useState</code> Hook allows functional components to manage state.</p>
+<pre><code class="language-jsx">import React, { useState } from 'react';
+
+function Example() {
+  // Declares a state variable called &quot;count&quot; with initial value 0
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3>useEffect</h3>
+<p>The <code>useEffect</code> Hook performs side effects in functional components, similar to lifecycle methods in class components.</p>
+<pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate
+  useEffect(() =&gt; {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+    
+    // Optional cleanup function (similar to componentWillUnmount)
+    return () =&gt; {
+      document.title = 'React App';
+    };
+  }, [count]); // Only re-run if count changes
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3>Other Common Hooks</h3>
+<ul>
+<li><strong>useContext</strong>: Accesses context without nested component wrappers</li>
+<li><strong>useReducer</strong>: Alternative to useState for complex state logic</li>
+<li><strong>useRef</strong>: Creates a mutable reference that persists across renders</li>
+<li><strong>useMemo</strong>: Memoizes expensive calculations to optimize performance</li>
+<li><strong>useCallback</strong>: Returns a memoized callback to prevent unnecessary renders</li>
+</ul>
+<h3>Custom Hooks</h3>
+<p>Custom Hooks allow you to extract component logic into reusable functions.</p>
+<pre><code class="language-jsx">// Custom Hook for form handling
+function useFormInput(initialValue) {
+  const [value, setValue] = useState(initialValue);
+  
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+  
+  return {
+    value,
+    onChange: handleChange
+  };
+}
+
+// Using the custom Hook
+function LoginForm() {
+  const username = useFormInput('');
+  const password = useFormInput('');
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('Submitted:', username.value, password.value);
+  }
+  
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; {...username} /&gt;
+      &lt;input type=&quot;password&quot; placeholder=&quot;Password&quot; {...password} /&gt;
+      &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+<h2>JSX in Depth</h2>
+<h3>JavaScript Expressions in JSX</h3>
+<p>You can embed JavaScript expressions in JSX by using curly braces <code>{}</code>.</p>
+<pre><code class="language-jsx">const name = 'Josh Perez';
+const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+
+// You can use more complex expressions
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
+</code></pre>
+<h3>Conditional Rendering</h3>
+<p>There are several ways to handle conditional rendering in React:</p>
+<pre><code class="language-jsx">// Using if statements
+function Greeting({ isLoggedIn }) {
+  if (isLoggedIn) {
+    return &lt;UserGreeting /&gt;;
+  }
+  return &lt;GuestGreeting /&gt;;
+}
+
+// Using ternary operators
+function Greeting({ isLoggedIn }) {
+  return (
+    &lt;div&gt;
+      {isLoggedIn ? &lt;UserGreeting /&gt; : &lt;GuestGreeting /&gt;}
+    &lt;/div&gt;
+  );
+}
+
+// Using logical &amp;&amp; operator
+function Mailbox({ unreadMessages }) {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello!&lt;/h1&gt;
+      {unreadMessages.length &gt; 0 &amp;&amp; (
+        &lt;h2&gt;You have {unreadMessages.length} unread messages.&lt;/h2&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3>Lists and Keys</h3>
+<p>When rendering lists in React, you should include a &quot;key&quot; prop for each item:</p>
+<pre><code class="language-jsx">function NumberList({ numbers }) {
+  const listItems = numbers.map((number) =&gt;
+    &lt;li key={number.toString()}&gt;
+      {number}
+    &lt;/li&gt;
+  );
+  
+  return &lt;ul&gt;{listItems}&lt;/ul&gt;;
+}
+</code></pre>
+<p>Keys help React identify which items have changed, added, or removed. Keys should be unique among siblings and stable across renders.</p>
+<h2>Handling Events</h2>
+<p>React events are named using camelCase and pass event handlers as functions:</p>
+<pre><code class="language-jsx">function Button() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('Button was clicked');
+  }
+
+  return (
+    &lt;button onClick={handleClick}&gt;
+      Click me
+    &lt;/button&gt;
+  );
+}
+</code></pre>
+<p>Passing parameters to event handlers:</p>
+<pre><code class="language-jsx">function Button({ id, text }) {
+  const handleClick = (id, e) =&gt; {
+    console.log(`Button ${id} was clicked`);
+  };
+
+  return (
+    &lt;button onClick={(e) =&gt; handleClick(id, e)}&gt;
+      {text}
+    &lt;/button&gt;
+  );
+}
+</code></pre>
+<h2>Forms in React</h2>
+<p>In HTML, form elements maintain their own state. In React, form state is typically controlled by the component:</p>
+<pre><code class="language-jsx">function NameForm() {
+  const [name, setName] = useState('');
+
+  const handleChange = (e) =&gt; {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = (e) =&gt; {
+    e.preventDefault();
+    alert(`A name was submitted: ${name}`);
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;label&gt;
+        Name:
+        &lt;input type=&quot;text&quot; value={name} onChange={handleChange} /&gt;
+      &lt;/label&gt;
+      &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+<p>This is called a &quot;controlled component&quot; because React controls both the value and the changes to the value.</p>
+<h2>Component Lifecycle</h2>
+<h3>Class Component Lifecycle</h3>
+<p>Class components have lifecycle methods that execute at different stages of a component's life:</p>
+<ol>
+<li>
+<p><strong>Mounting</strong>:</p>
+<ul>
+<li><code>constructor()</code></li>
+<li><code>static getDerivedStateFromProps()</code></li>
+<li><code>render()</code></li>
+<li><code>componentDidMount()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Updating</strong>:</p>
+<ul>
+<li><code>static getDerivedStateFromProps()</code></li>
+<li><code>shouldComponentUpdate()</code></li>
+<li><code>render()</code></li>
+<li><code>getSnapshotBeforeUpdate()</code></li>
+<li><code>componentDidUpdate()</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Unmounting</strong>:</p>
+<ul>
+<li><code>componentWillUnmount()</code></li>
+</ul>
+</li>
+</ol>
+<h3>Functional Component Lifecycle with Hooks</h3>
+<p>For functional components with Hooks, the lifecycle can be managed with <code>useEffect</code>:</p>
+<pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  // Similar to componentDidMount
+  useEffect(() =&gt; {
+    console.log('Component mounted');
+    const interval = setInterval(() =&gt; {
+      setSeconds(prev =&gt; prev + 1);
+    }, 1000);
+
+    // Similar to componentWillUnmount
+    return () =&gt; {
+      console.log('Component will unmount');
+      clearInterval(interval);
+    };
+  }, []); // Empty dependency array means run once on mount
+
+  // Similar to componentDidUpdate for specific props/state
+  useEffect(() =&gt; {
+    console.log('Seconds updated:', seconds);
+  }, [seconds]); // Run when seconds changes
+
+  return &lt;div&gt;Seconds: {seconds}&lt;/div&gt;;
+}
+</code></pre>
+<h2>Context API</h2>
+<p>Context provides a way to pass data through the component tree without having to pass props down manually at every level:</p>
+<pre><code class="language-jsx">// Create a context
+const ThemeContext = React.createContext('light');
+
+// Provider in parent component
+function App() {
+  const [theme, setTheme] = useState('light');
+  
+  return (
+    &lt;ThemeContext.Provider value={theme}&gt;
+      &lt;Toolbar /&gt;
+      &lt;button onClick={() =&gt; setTheme(theme === 'light' ? 'dark' : 'light')}&gt;
+        Toggle Theme
+      &lt;/button&gt;
+    &lt;/ThemeContext.Provider&gt;
+  );
+}
+
+// Intermediate component
+function Toolbar() {
+  return &lt;ThemedButton /&gt;;
+}
+
+// Consumer in a deeply nested component
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+  
+  return &lt;Button theme={theme} /&gt;;
+}
+</code></pre>
+<h2>React Router</h2>
+<p>React Router is the standard routing library for React. It enables navigation between views in your application:</p>
+<pre><code class="language-jsx">import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;
+        &lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;
+        &lt;Link to=&quot;/users&quot;&gt;Users&lt;/Link&gt;
+      &lt;/nav&gt;
+
+      &lt;Routes&gt;
+        &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+        &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+        &lt;Route path=&quot;/users&quot; element={&lt;Users /&gt;} /&gt;
+        &lt;Route path=&quot;/users/:userId&quot; element={&lt;UserDetail /&gt;} /&gt;
+        &lt;Route path=&quot;*&quot; element={&lt;NotFound /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</code></pre>
+<h2>State Management</h2>
+<h3>Local Component State</h3>
+<p>For simple applications, using <code>useState</code> and prop drilling may be sufficient.</p>
+<h3>Context API + useReducer</h3>
+<p>For mid-sized applications, combining Context with <code>useReducer</code> can provide a Redux-like state management solution:</p>
+<pre><code class="language-jsx">// Create context
+const TodoContext = React.createContext();
+
+// Reducer function
+function todoReducer(state, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [...state, { id: Date.now(), text: action.text, completed: false }];
+    case 'TOGGLE_TODO':
+      return state.map(todo =&gt;
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
+    default:
+      return state;
+  }
+}
+
+// Provider component
+function TodoProvider({ children }) {
+  const [todos, dispatch] = useReducer(todoReducer, []);
+  
+  return (
+    &lt;TodoContext.Provider value={{ todos, dispatch }}&gt;
+      {children}
+    &lt;/TodoContext.Provider&gt;
+  );
+}
+
+// Consumer component
+function TodoList() {
+  const { todos, dispatch } = useContext(TodoContext);
+  
+  return (
+    &lt;ul&gt;
+      {todos.map(todo =&gt; (
+        &lt;li
+          key={todo.id}
+          onClick={() =&gt; dispatch({ type: 'TOGGLE_TODO', id: todo.id })}
+          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        &gt;
+          {todo.text}
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+<h3>Redux</h3>
+<p>For larger applications, Redux provides a predictable state container:</p>
+<pre><code class="language-jsx">// Actions
+const ADD_TODO = 'ADD_TODO';
+const TOGGLE_TODO = 'TOGGLE_TODO';
+
+// Action creators
+function addTodo(text) {
+  return { type: ADD_TODO, text };
+}
+
+function toggleTodo(id) {
+  return { type: TOGGLE_TODO, id };
+}
+
+// Reducer
+function todoReducer(state = [], action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        { id: Date.now(), text: action.text, completed: false }
+      ];
+    case TOGGLE_TODO:
+      return state.map(todo =&gt;
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
+    default:
+      return state;
+  }
+}
+
+// Store
+const store = Redux.createStore(todoReducer);
+
+// Connect to React with react-redux
+function TodoList({ todos, toggleTodo }) {
+  return (
+    &lt;ul&gt;
+      {todos.map(todo =&gt; (
+        &lt;li
+          key={todo.id}
+          onClick={() =&gt; toggleTodo(todo.id)}
+          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        &gt;
+          {todo.text}
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+
+const mapStateToProps = state =&gt; ({
+  todos: state
+});
+
+const mapDispatchToProps = dispatch =&gt; ({
+  toggleTodo: id =&gt; dispatch(toggleTodo(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+</code></pre>
+<h2>Server Communication</h2>
+<h3>Fetching Data with useEffect</h3>
+<pre><code class="language-jsx">function UserList() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() =&gt; {
+    async function fetchUsers() {
+      try {
+        const response = await fetch('https://api.example.com/users');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUsers(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    }
+
+    fetchUsers();
+  }, []);
+
+  if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error: {error}&lt;/div&gt;;
+
+  return (
+    &lt;ul&gt;
+      {users.map(user =&gt; (
+        &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+<h3>React Query</h3>
+<p>React Query simplifies data fetching, caching, and state management:</p>
+<pre><code class="language-jsx">import { useQuery, useMutation, QueryClient, QueryClientProvider } from 'react-query';
+
+// Set up the client
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    &lt;QueryClientProvider client={queryClient}&gt;
+      &lt;UserList /&gt;
+    &lt;/QueryClientProvider&gt;
+  );
+}
+
+function UserList() {
+  const { isLoading, error, data } = useQuery('users', () =&gt;
+    fetch('https://api.example.com/users').then(res =&gt; res.json())
+  );
+
+  if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error: {error.message}&lt;/div&gt;;
+
+  return (
+    &lt;ul&gt;
+      {data.map(user =&gt; (
+        &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+<h2>Testing React Components</h2>
+<h3>Jest and React Testing Library</h3>
+<p>React Testing Library focuses on testing components from the end user's perspective:</p>
+<pre><code class="language-jsx">// Button.jsx
+function Button({ onClick, children }) {
+  return (
+    &lt;button onClick={onClick} data-testid=&quot;custom-button&quot;&gt;
+      {children}
+    &lt;/button&gt;
+  );
+}
+
+// Button.test.jsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import Button from './Button';
+
+test('calls onClick when clicked', () =&gt; {
+  const handleClick = jest.fn();
+  render(&lt;Button onClick={handleClick}&gt;Click Me&lt;/Button&gt;);
+  
+  const button = screen.getByTestId('custom-button');
+  fireEvent.click(button);
+  
+  expect(handleClick).toHaveBeenCalledTimes(1);
+});
+</code></pre>
+<h2>Performance Optimization</h2>
+<h3>React.memo</h3>
+<p>Prevents unnecessary re-renders for functional components:</p>
+<pre><code class="language-jsx">const MemoizedComponent = React.memo(function MyComponent(props) {
+  // Only re-renders if props change
+  return &lt;div&gt;{props.name}&lt;/div&gt;;
+});
+</code></pre>
+<h3>useMemo and useCallback</h3>
+<p>Memoize expensive calculations and callbacks:</p>
+<pre><code class="language-jsx">function SearchResults({ query, data }) {
+  // Memoize expensive calculation
+  const filteredData = useMemo(() =&gt; {
+    console.log('Filtering data...');
+    return data.filter(item =&gt; item.name.includes(query));
+  }, [data, query]);
+
+  // Memoize callback
+  const handleItemClick = useCallback((id) =&gt; {
+    console.log(`Clicked item ${id}`);
+  }, []);
+
+  return (
+    &lt;ul&gt;
+      {filteredData.map(item =&gt; (
+        &lt;li key={item.id} onClick={() =&gt; handleItemClick(item.id)}&gt;
+          {item.name}
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+<h3>Code Splitting</h3>
+<p>Split your code into smaller chunks that load on demand:</p>
+<pre><code class="language-jsx">import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Lazy load components
+const Home = lazy(() =&gt; import('./Home'));
+const About = lazy(() =&gt; import('./About'));
+const Dashboard = lazy(() =&gt; import('./Dashboard'));
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+        &lt;Routes&gt;
+          &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+          &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+          &lt;Route path=&quot;/dashboard&quot; element={&lt;Dashboard /&gt;} /&gt;
+        &lt;/Routes&gt;
+      &lt;/Suspense&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</code></pre>
+<h2>React Ecosystem</h2>
+<h3>UI Component Libraries</h3>
+<ul>
+<li><strong>Material-UI</strong>: React components that implement Google's Material Design</li>
+<li><strong>Chakra UI</strong>: Simple, modular and accessible component library</li>
+<li><strong>Ant Design</strong>: Enterprise-level UI design language</li>
+<li><strong>Tailwind CSS</strong>: Utility-first CSS framework that works well with React</li>
+</ul>
+<h3>State Management</h3>
+<ul>
+<li><strong>Redux</strong>: Predictable state container for JavaScript apps</li>
+<li><strong>MobX</strong>: Simple, scalable state management</li>
+<li><strong>Recoil</strong>: Experimental state management library by Facebook</li>
+<li><strong>Zustand</strong>: Small, fast and scalable state management solution</li>
+</ul>
+<h3>Form Libraries</h3>
+<ul>
+<li><strong>Formik</strong>: Complete solution for forms</li>
+<li><strong>React Hook Form</strong>: Performance-focused form library</li>
+<li><strong>Final Form</strong>: High performance subscription-based form state management</li>
+</ul>
+<h3>Data Fetching</h3>
+<ul>
+<li><strong>React Query</strong>: Powerful data fetching and caching library</li>
+<li><strong>SWR</strong>: React Hooks for remote data fetching</li>
+<li><strong>Apollo Client</strong>: Complete state management library for GraphQL</li>
+</ul>
+<h3>Styling Solutions</h3>
+<ul>
+<li><strong>Styled-components</strong>: CSS-in-JS library</li>
+<li><strong>Emotion</strong>: CSS-in-JS library designed for high performance</li>
+<li><strong>CSS Modules</strong>: Locally scoped CSS classes</li>
+</ul>
+<h3>Meta-Frameworks</h3>
+<ul>
+<li><strong>Next.js</strong>: Framework for server-rendered React applications</li>
+<li><strong>Remix</strong>: Newer framework focused on web fundamentals and modern UX</li>
+<li><strong>Gatsby</strong>: Static site generator for React</li>
+</ul>
+<h2>Best Practices</h2>
+<ol>
+<li><strong>Keep components small and focused</strong> on a single responsibility</li>
+<li><strong>Use functional components with Hooks</strong> for most use cases</li>
+<li><strong>Lift state up</strong> to the nearest common ancestor when multiple components need the same data</li>
+<li><strong>Use prop destructuring</strong> for cleaner component definitions</li>
+<li><strong>Use fragments</strong> to avoid unnecessary DOM nodes</li>
+<li><strong>Properly handle component keys</strong> in lists</li>
+<li><strong>Leverage code splitting</strong> for better performance</li>
+<li><strong>Follow file/folder organization</strong> that scales with your project</li>
+<li><strong>Create reusable custom Hooks</strong> for shared logic</li>
+<li><strong>Write tests</strong> for your components</li>
+</ol>
+<h2>Getting Started with React</h2>
+<ol>
+<li><strong>Learn the fundamentals</strong>: JSX, components, props, state</li>
+<li><strong>Master Hooks</strong>: useState, useEffect, useContext, etc.</li>
+<li><strong>Build small projects</strong>: Todo list, calculator, etc.</li>
+<li><strong>Explore routing</strong> with React Router</li>
+<li><strong>Learn state management</strong>: Context API, Redux, etc.</li>
+<li><strong>Study forms and data validation</strong></li>
+<li><strong>Practice API integration</strong></li>
+<li><strong>Explore testing</strong> with Jest and React Testing Library</li>
+</ol>
+<p>React's versatility and strong ecosystem make it an excellent choice for building modern web applications, from simple interfaces to complex enterprise applications. Its component-based architecture promotes reusability and maintainability, while its virtual DOM implementation ensures good performance.</p>
+
+            </div>
+        </main>
+        <footer>
+            <p>Made by Lsbn - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>

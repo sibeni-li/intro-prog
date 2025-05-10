@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="../../styles/style.css" rel="stylesheet">
+    <title>Nodejs</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <img src="../../images/logo.png" alt="Logo">
+                <ul>
+                    <li><a class="link nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="link nav-link" href="../languages/html.html">HTML</a></li>
+                    <li><a class="link nav-link" href="../languages/css.html">CSS</a></li>
+                    <li><a class="link nav-link" href="../languages/javascript.html">JavaScript</a></li>
+                    <li><a class="link nav-link" href="../languages/python.html">Python</a></li>
+                    <li><a class="link nav-link" href="../languages/c.html">C</a></li>
+                    <li><a class="link nav-link" href="../frameworks/react.html">React</a></li>
+                    <li><a class="link nav-link" href="../frameworks/nodejs.html">Node.js</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container introduction">
+                <h1>Introduction to Node.js</h1>
+<h2>What is Node.js?</h2>
+<p>Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside of a web browser. It allows developers to use JavaScript to write command-line tools and server-side scripts—creating a unified development experience where the same language (JavaScript) can be used both for client-side and server-side programming.</p>
+<p>Created by Ryan Dahl in 2009, Node.js is built on Chrome's V8 JavaScript engine and uses an event-driven, non-blocking I/O model that makes it lightweight, efficient, and perfect for data-intensive real-time applications.</p>
+<h2>Key Features of Node.js</h2>
+<h3>1. JavaScript Runtime</h3>
+<p>Node.js allows JavaScript to be executed outside the browser, extending its use to server-side development. This unifies web development with a single language.</p>
+<h3>2. Event-Driven Architecture</h3>
+<p>Node.js uses an event loop to handle asynchronous operations:</p>
+<pre><code class="language-javascript">// Example of event-driven programming
+const fs = require('fs');
+
+// Non-blocking, asynchronous read
+fs.readFile('file.txt', 'utf8', (err, data) =&gt; {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+
+console.log('This runs before file reading completes!');
+</code></pre>
+<h3>3. Non-Blocking I/O</h3>
+<p>Node.js operations are asynchronous by default, meaning they don't block the execution thread. This makes Node.js highly efficient for I/O-bound tasks.</p>
+<h3>4. Single-Threaded (with Multi-Threading Support)</h3>
+<p>Node.js runs on a single thread but leverages asynchronous programming to handle concurrent operations efficiently. For CPU-intensive tasks, it offers worker threads.</p>
+<h3>5. NPM (Node Package Manager)</h3>
+<p>NPM is the world's largest software registry, with over 1.3 million packages that can be easily installed and managed:</p>
+<pre><code class="language-bash"># Installing a package
+npm install express
+
+# Installing a package globally
+npm install -g nodemon
+
+# Creating a new project
+npm init
+</code></pre>
+<h3>6. Fast Execution</h3>
+<p>Built on Chrome's V8 JavaScript engine, Node.js offers high-performance execution of JavaScript code.</p>
+<h2>Installing Node.js</h2>
+<h3>Windows/Mac</h3>
+<ol>
+<li>Visit the <a href="https://nodejs.org/">official Node.js website</a></li>
+<li>Download the LTS (Long Term Support) version</li>
+<li>Run the installer and follow the instructions</li>
+<li>Verify installation by opening a terminal and typing:</li>
+</ol>
+<pre><code class="language-bash">node -v
+npm -v
+</code></pre>
+<h3>Linux (Ubuntu/Debian)</h3>
+<pre><code class="language-bash">sudo apt update
+sudo apt install nodejs npm
+</code></pre>
+<h3>Using NVM (Node Version Manager) - Recommended</h3>
+<p>NVM allows you to install and manage multiple Node.js versions:</p>
+<pre><code class="language-bash"># Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Install latest LTS version
+nvm install --lts
+
+# Switch between versions
+nvm use 16.15.0
+</code></pre>
+<h2>Core Modules</h2>
+<p>Node.js comes with built-in modules that provide essential functionality:</p>
+<h3>File System (fs)</h3>
+<pre><code class="language-javascript">const fs = require('fs');
+
+// Reading a file synchronously
+const data = fs.readFileSync('file.txt', 'utf8');
+console.log(data);
+
+// Writing to a file asynchronously
+fs.writeFile('output.txt', 'Hello, Node.js!', 'utf8', (err) =&gt; {
+  if (err) throw err;
+  console.log('File has been written');
+});
+</code></pre>
+<h3>HTTP/HTTPS</h3>
+<pre><code class="language-javascript">const http = require('http');
+
+// Creating a simple HTTP server
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\n');
+});
+
+server.listen(3000, 'localhost', () =&gt; {
+  console.log('Server running at http://localhost:3000/');
+});
+</code></pre>
+<h3>Path</h3>
+<pre><code class="language-javascript">const path = require('path');
+
+// Working with file paths
+const filePath = path.join(__dirname, 'files', 'example.txt');
+console.log(filePath);
+
+const extension = path.extname('file.txt');
+console.log(extension); // '.txt'
+</code></pre>
+<h3>OS</h3>
+<pre><code class="language-javascript">const os = require('os');
+
+// Getting system information
+console.log('CPU architecture:', os.arch());
+console.log('Free memory:', os.freemem() / 1024 / 1024, 'MB');
+console.log('Total memory:', os.totalmem() / 1024 / 1024, 'MB');
+console.log('OS platform:', os.platform());
+console.log('User info:', os.userInfo());
+</code></pre>
+<h3>Events</h3>
+<pre><code class="language-javascript">const EventEmitter = require('events');
+
+// Creating a custom event emitter
+class MyEmitter extends EventEmitter {}
+const myEmitter = new MyEmitter();
+
+// Register an event listener
+myEmitter.on('event', (arg) =&gt; {
+  console.log('Event triggered with argument:', arg);
+});
+
+// Trigger the event
+myEmitter.emit('event', 'Hello from event!');
+</code></pre>
+<h2>NPM and Package Management</h2>
+<h3>Package.json</h3>
+<p>The <code>package.json</code> file is at the core of Node.js projects:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;my-nodejs-app&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;A sample Node.js application&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index.js&quot;,
+    &quot;dev&quot;: &quot;nodemon index.js&quot;,
+    &quot;test&quot;: &quot;jest&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;^4.17.1&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;nodemon&quot;: &quot;^2.0.7&quot;,
+    &quot;jest&quot;: &quot;^27.0.0&quot;
+  }
+}
+</code></pre>
+<h3>Managing Dependencies</h3>
+<pre><code class="language-bash"># Installing dependencies from package.json
+npm install
+
+# Installing a specific dependency
+npm install express
+
+# Installing a development dependency
+npm install --save-dev nodemon
+
+# Installing a global package
+npm install -g pm2
+
+# Updating packages
+npm update
+
+# Removing a package
+npm uninstall express
+</code></pre>
+<h3>NPM Scripts</h3>
+<p>NPM scripts provide a convenient way to run commands:</p>
+<pre><code class="language-bash"># Running a script defined in package.json
+npm run dev
+
+# Running the start script
+npm start
+
+# Running tests
+npm test
+</code></pre>
+<h2>Creating a Basic Web Server</h2>
+<h3>Using Native HTTP Module</h3>
+<pre><code class="language-javascript">const http = require('http');
+
+const server = http.createServer((req, res) =&gt; {
+  // Get the URL and method
+  const { url, method } = req;
+  
+  // Log request details
+  console.log(`${method} ${url}`);
+  
+  // Set response headers
+  res.setHeader('Content-Type', 'text/html');
+  
+  // Handle different routes
+  if (url === '/') {
+    res.statusCode = 200;
+    res.end('&lt;h1&gt;Home Page&lt;/h1&gt;');
+  } else if (url === '/about') {
+    res.statusCode = 200;
+    res.end('&lt;h1&gt;About Page&lt;/h1&gt;');
+  } else {
+    res.statusCode = 404;
+    res.end('&lt;h1&gt;404 Not Found&lt;/h1&gt;');
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () =&gt; {
+  console.log(`Server running on port ${PORT}`);
+});
+</code></pre>
+<h3>Using Express Framework</h3>
+<pre><code class="language-javascript">const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware to parse JSON
+app.use(express.json());
+
+// Serve static files from 'public' directory
+app.use(express.static('public'));
+
+// Routes
+app.get('/', (req, res) =&gt; {
+  res.send('&lt;h1&gt;Home Page&lt;/h1&gt;');
+});
+
+app.get('/about', (req, res) =&gt; {
+  res.send('&lt;h1&gt;About Page&lt;/h1&gt;');
+});
+
+app.get('/api/users', (req, res) =&gt; {
+  res.json([
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' }
+  ]);
+});
+
+// 404 handler
+app.use((req, res) =&gt; {
+  res.status(404).send('&lt;h1&gt;404 Not Found&lt;/h1&gt;');
+});
+
+// Start the server
+app.listen(PORT, () =&gt; {
+  console.log(`Server running on port ${PORT}`);
+});
+</code></pre>
+<h2>Asynchronous Programming in Node.js</h2>
+<h3>Callbacks</h3>
+<pre><code class="language-javascript">// Traditional callback pattern
+fs.readFile('file.txt', 'utf8', (err, data) =&gt; {
+  if (err) {
+    console.error('Error:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+</code></pre>
+<h3>Promises</h3>
+<pre><code class="language-javascript">// Using the promise-based API (Node.js 10+)
+const fs = require('fs').promises;
+
+fs.readFile('file.txt', 'utf8')
+  .then(data =&gt; {
+    console.log('File content:', data);
+  })
+  .catch(err =&gt; {
+    console.error('Error:', err);
+  });
+
+// Converting callback APIs to promises
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
+
+readFile('file.txt', 'utf8')
+  .then(data =&gt; console.log(data))
+  .catch(err =&gt; console.error(err));
+</code></pre>
+<h3>Async/Await</h3>
+<pre><code class="language-javascript">// Using async/await for cleaner asynchronous code
+const fs = require('fs').promises;
+
+async function readFileContent() {
+  try {
+    const data = await fs.readFile('file.txt', 'utf8');
+    console.log('File content:', data);
+    
+    // Sequential reads
+    const file1 = await fs.readFile('file1.txt', 'utf8');
+    const file2 = await fs.readFile('file2.txt', 'utf8');
+    console.log('Combined content:', file1 + file2);
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+
+readFileContent();
+
+// Parallel operations with Promise.all
+async function readMultipleFiles() {
+  try {
+    const [file1Content, file2Content] = await Promise.all([
+      fs.readFile('file1.txt', 'utf8'),
+      fs.readFile('file2.txt', 'utf8')
+    ]);
+    
+    console.log('File 1:', file1Content);
+    console.log('File 2:', file2Content);
+  } catch (err) {
+    console.error('Error reading files:', err);
+  }
+}
+
+readMultipleFiles();
+</code></pre>
+<h2>Working with Environment Variables</h2>
+<pre><code class="language-javascript">// Load environment variables from .env file
+// npm install dotenv
+require('dotenv').config();
+
+// Access environment variables
+const PORT = process.env.PORT || 3000;
+const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/myapp';
+const API_KEY = process.env.API_KEY;
+
+console.log(`Server running on port ${PORT}`);
+console.log(`Database URI: ${DB_URI}`);
+</code></pre>
+<h2>Common Use Cases for Node.js</h2>
+<h3>1. Web Servers and APIs</h3>
+<p>Node.js excels at building RESTful APIs and web servers using frameworks like Express, Fastify, or Koa.</p>
+<h3>2. Real-time Applications</h3>
+<p>With libraries like Socket.io, Node.js powers chat applications, live collaboration tools, and real-time dashboards.</p>
+<h3>3. Microservices</h3>
+<p>Node.js is perfect for building lightweight, scalable microservices with frameworks like NestJS or Moleculer.</p>
+<h3>4. Command-line Tools</h3>
+<p>Many development tools are built with Node.js, including build tools (Webpack, Gulp) and CLI utilities.</p>
+<h3>5. Serverless Functions</h3>
+<p>Node.js is a popular choice for serverless functions on platforms like AWS Lambda, Azure Functions, and Vercel.</p>
+<h2>Popular Node.js Frameworks and Libraries</h2>
+<h3>Web Frameworks</h3>
+<ul>
+<li><strong>Express.js</strong>: Fast, minimalist web framework</li>
+<li><strong>Koa.js</strong>: Lighter alternative to Express by the same team</li>
+<li><strong>Fastify</strong>: Focus on high performance and low overhead</li>
+<li><strong>NestJS</strong>: Progressive framework for building enterprise applications</li>
+<li><strong>Hapi.js</strong>: Robust framework for building APIs and services</li>
+</ul>
+<h3>Database Interaction</h3>
+<ul>
+<li><strong>Mongoose</strong>: Elegant MongoDB object modeling</li>
+<li><strong>Sequelize</strong>: ORM for SQL databases</li>
+<li><strong>Prisma</strong>: Next-generation ORM</li>
+<li><strong>Knex.js</strong>: SQL query builder</li>
+</ul>
+<h3>Testing</h3>
+<ul>
+<li><strong>Jest</strong>: Full-featured testing framework</li>
+<li><strong>Mocha</strong>: Flexible testing framework</li>
+<li><strong>Chai</strong>: Assertion library</li>
+<li><strong>Supertest</strong>: HTTP assertion library</li>
+</ul>
+<h3>Utility Libraries</h3>
+<ul>
+<li><strong>Lodash</strong>: Utility functions</li>
+<li><strong>Moment.js/date-fns</strong>: Date manipulation</li>
+<li><strong>axios</strong>: Promise-based HTTP client</li>
+<li><strong>dotenv</strong>: Environment variable management</li>
+</ul>
+<h2>Best Practices for Node.js Development</h2>
+<h3>1. Use Async/Await</h3>
+<p>Prefer <code>async/await</code> over raw promises or callbacks for more readable asynchronous code.</p>
+<h3>2. Error Handling</h3>
+<p>Always handle errors properly, especially in asynchronous operations:</p>
+<pre><code class="language-javascript">// Good practice
+try {
+  const data = await readFile();
+  processData(data);
+} catch (err) {
+  logger.error('Failed to read file:', err);
+  // Handle error appropriately
+}
+</code></pre>
+<h3>3. Environment Configuration</h3>
+<p>Store configuration in environment variables, not in code:</p>
+<pre><code class="language-javascript">// .env file
+DB_HOST=localhost
+DB_PORT=27017
+API_KEY=your_secret_key
+
+// app.js
+require('dotenv').config();
+const dbHost = process.env.DB_HOST;
+</code></pre>
+<h3>4. Security Practices</h3>
+<ul>
+<li>Use HTTPS</li>
+<li>Implement rate limiting</li>
+<li>Validate and sanitize input</li>
+<li>Use helmet.js for secure HTTP headers</li>
+<li>Follow OWASP security guidelines</li>
+</ul>
+<h3>5. Logging</h3>
+<p>Implement structured logging for better debugging and monitoring:</p>
+<pre><code class="language-javascript">// npm install winston
+const winston = require('winston');
+
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(new winston.transports.Console({
+    format: winston.format.simple()
+  }));
+}
+
+// Usage
+logger.info('Server started on port 3000');
+logger.error('Database connection failed', { error: err.message });
+</code></pre>
+<h3>6. Proper Project Structure</h3>
+<p>Organize your project into logical modules and follow separation of concerns:</p>
+<pre><code>project/
+  ├── src/
+  │   ├── config/         # Configuration files
+  │   ├── controllers/    # Request handlers
+  │   ├── models/         # Data models
+  │   ├── routes/         # Route definitions
+  │   ├── services/       # Business logic
+  │   ├── utils/          # Utility functions
+  │   └── app.js          # App initialization
+  ├── tests/              # Test files
+  ├── .env                # Environment variables
+  ├── .gitignore
+  ├── package.json
+  └── README.md
+</code></pre>
+<h2>Node.js in Production</h2>
+<h3>Process Management</h3>
+<p>Use a process manager to keep your application running:</p>
+<ul>
+<li><strong>PM2</strong>: Feature-rich process manager</li>
+<li><strong>Forever</strong>: Simple CLI tool</li>
+<li><strong>Nodemon</strong>: For development only</li>
+</ul>
+<pre><code class="language-bash"># Installing PM2
+npm install -g pm2
+
+# Starting an application
+pm2 start app.js --name &quot;my-app&quot;
+
+# Cluster mode
+pm2 start app.js -i max
+
+# Monitoring
+pm2 status
+pm2 logs
+pm2 monit
+</code></pre>
+<h3>Containerization</h3>
+<p>Docker is commonly used to containerize Node.js applications:</p>
+<pre><code class="language-dockerfile">FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [&quot;node&quot;, &quot;src/app.js&quot;]
+</code></pre>
+<h3>Load Balancing and Scaling</h3>
+<p>Use Node.js's built-in cluster module or a load balancer:</p>
+<pre><code class="language-javascript">const cluster = require('cluster');
+const os = require('os');
+const numCPUs = os.cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers
+  for (let i = 0; i &lt; numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) =&gt; {
+    console.log(`Worker ${worker.process.pid} died`);
+    // Replace the dead worker
+    cluster.fork();
+  });
+} else {
+  // Workers share the TCP connection
+  const app = require('./app');
+  app.listen(3000);
+  console.log(`Worker ${process.pid} started`);
+}
+</code></pre>
+<h3>Performance Monitoring</h3>
+<p>Tools for monitoring Node.js applications:</p>
+<ul>
+<li><strong>New Relic</strong>: Application performance monitoring</li>
+<li><strong>Datadog</strong>: Infrastructure and application monitoring</li>
+<li><strong>Prometheus &amp; Grafana</strong>: Open-source monitoring solution</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Node.js has transformed server-side development by bringing JavaScript to the backend. Its event-driven, non-blocking architecture makes it ideal for I/O-bound applications, APIs, real-time services, and microservices.</p>
+<p>As you continue your Node.js journey, focus on:</p>
+<ol>
+<li><strong>Mastering asynchronous programming</strong> patterns</li>
+<li><strong>Understanding the event loop</strong> and how it works</li>
+<li><strong>Learning a web framework</strong> like Express.js</li>
+<li><strong>Exploring database integrations</strong> with ORMs or query builders</li>
+<li><strong>Implementing authentication</strong> and security best practices</li>
+<li><strong>Building real-world projects</strong> to apply your knowledge</li>
+</ol>
+<p>With its vast ecosystem of libraries and active community, Node.js offers developers powerful tools to build fast, scalable, and maintainable applications for a wide range of use cases.</p>
+
+            </div>
+        </main>
+        <footer>
+            <p>Made by Lsbn - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>

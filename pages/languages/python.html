@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="../../styles/style.css" rel="stylesheet">
+    <title>Python</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <img src="../../images/logo.png" alt="Logo">
+                <ul>
+                    <li><a class="link nav-link" href="../../index.html">Home</a></li>
+                    <li><a class="link nav-link" href="../languages/html.html">HTML</a></li>
+                    <li><a class="link nav-link" href="../languages/css.html">CSS</a></li>
+                    <li><a class="link nav-link" href="../languages/javascript.html">JavaScript</a></li>
+                    <li><a class="link nav-link" href="../languages/python.html">Python</a></li>
+                    <li><a class="link nav-link" href="../languages/c.html">C</a></li>
+                    <li><a class="link nav-link" href="../frameworks/react.html">React</a></li>
+                    <li><a class="link nav-link" href="../frameworks/nodejs.html">Node.js</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container introduction">
+                <h1>Introduction to Python</h1>
+<p>Python is a high-level, interpreted programming language known for its readability, simplicity, and versatility. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages in the world, used in web development, data science, artificial intelligence, automation, and many other domains.</p>
+<h2>Python Basics</h2>
+<h3>Getting Started</h3>
+<h4>Installation</h4>
+<p>Python can be downloaded from <a href="https://www.python.org/downloads/">python.org</a>. Most Linux and macOS systems come with Python pre-installed. You can verify your installation by opening a terminal or command prompt and typing:</p>
+<pre><code class="language-bash">python --version  # or python3 --version on some systems
+</code></pre>
+<h4>Interactive Shell</h4>
+<p>Python provides an interactive shell (REPL - Read, Evaluate, Print, Loop) where you can execute code line by line:</p>
+<pre><code class="language-bash">python  # or python3 on some systems
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; print(&quot;Hello, World!&quot;)
+Hello, World!
+&gt;&gt;&gt; 2 + 3
+5
+</code></pre>
+<h4>Running Python Scripts</h4>
+<p>Save Python code in a <code>.py</code> file and execute it:</p>
+<pre><code class="language-bash">python script.py  # or python3 script.py
+</code></pre>
+<p>Example <code>script.py</code>:</p>
+<pre><code class="language-python">print(&quot;Hello, World!&quot;)
+</code></pre>
+<h3>Python Syntax Basics</h3>
+<p>Python uses indentation (whitespace) to define code blocks, making it visually clean and readable.</p>
+<pre><code class="language-python"># This is a comment
+print(&quot;Hello, World!&quot;)  # This is also a comment
+
+&quot;&quot;&quot;
+This is a multi-line comment
+or docstring used to document code
+&quot;&quot;&quot;
+</code></pre>
+<h3>Variables and Data Types</h3>
+<p>Python is dynamically typed, meaning you don't need to specify variable types:</p>
+<pre><code class="language-python"># Basic data types
+name = &quot;John&quot;               # String
+age = 30                    # Integer
+height = 5.9                # Float
+is_student = True           # Boolean
+has_car = None              # NoneType (similar to null in other languages)
+
+# Check type of variable
+print(type(name))  # &lt;class 'str'&gt;
+</code></pre>
+<h3>Basic Data Structures</h3>
+<pre><code class="language-python"># Lists (ordered, mutable collection)
+fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+fruits.append(&quot;orange&quot;)     # Add item
+fruits[0] = &quot;pear&quot;          # Modify item
+first_fruit = fruits[0]     # Access by index (starts at 0)
+fruits.remove(&quot;banana&quot;)     # Remove item
+fruits.sort()               # Sort list
+
+# Tuples (ordered, immutable collection)
+coordinates = (10.5, 20.3)
+x, y = coordinates          # Tuple unpacking
+
+# Dictionaries (key-value pairs, mutable)
+person = {
+    &quot;name&quot;: &quot;John&quot;,
+    &quot;age&quot;: 30,
+    &quot;city&quot;: &quot;New York&quot;
+}
+person[&quot;email&quot;] = &quot;john@example.com&quot;  # Add item
+name = person[&quot;name&quot;]                 # Access by key
+person[&quot;age&quot;] = 31                    # Update value
+del person[&quot;city&quot;]                    # Remove item
+
+# Sets (unordered collection of unique items)
+colors = {&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;}
+colors.add(&quot;yellow&quot;)        # Add item
+colors.remove(&quot;red&quot;)        # Remove item
+is_present = &quot;green&quot; in colors  # Check membership
+</code></pre>
+<h3>Operators</h3>
+<pre><code class="language-python"># Arithmetic operators
+sum = 5 + 3          # Addition
+difference = 10 - 5  # Subtraction
+product = 4 * 2      # Multiplication
+quotient = 20 / 5    # Division (returns float)
+int_quotient = 20 // 5  # Integer division
+remainder = 10 % 3   # Modulus (remainder)
+power = 2 ** 3       # Exponentiation (2³ = 8)
+
+# Comparison operators
+is_equal = 5 == 5    # Equal to
+is_not_equal = 5 != 3  # Not equal to
+is_greater = 10 &gt; 5  # Greater than
+is_less = 5 &lt; 10     # Less than
+is_greater_or_equal = 10 &gt;= 10  # Greater than or equal to
+is_less_or_equal = 5 &lt;= 5  # Less than or equal to
+
+# Logical operators
+is_adult = age &gt;= 18 and height &gt; 5.5  # Logical AND
+is_eligible = is_student or has_experience  # Logical OR
+is_not_valid = not is_valid  # Logical NOT
+
+# Identity operators
+a = [1, 2, 3]
+b = a
+is_same_object = a is b  # True (same object in memory)
+c = [1, 2, 3]
+is_same_object = a is c  # False (different objects, even with same content)
+
+# Membership operators
+is_present = &quot;apple&quot; in fruits  # True if &quot;apple&quot; exists in fruits
+</code></pre>
+<h3>String Operations</h3>
+<pre><code class="language-python"># String creation
+single_quote = 'Hello'
+double_quote = &quot;World&quot;
+triple_quote = '''Multiple
+lines'''
+
+# String concatenation
+greeting = &quot;Hello&quot; + &quot; &quot; + &quot;World&quot;  # &quot;Hello World&quot;
+
+# String formatting
+name = &quot;John&quot;
+age = 30
+# f-strings (Python 3.6+)
+message = f&quot;My name is {name} and I'm {age} years old.&quot;
+# format() method
+message = &quot;My name is {} and I'm {} years old.&quot;.format(name, age)
+# %-formatting (older style)
+message = &quot;My name is %s and I'm %d years old.&quot; % (name, age)
+
+# String methods
+text = &quot;  Hello, World!  &quot;
+length = len(text)          # Length of string
+upper_case = text.upper()   # &quot;  HELLO, WORLD!  &quot;
+lower_case = text.lower()   # &quot;  hello, world!  &quot;
+stripped = text.strip()     # &quot;Hello, World!&quot; (removes leading/trailing whitespace)
+replaced = text.replace(&quot;Hello&quot;, &quot;Hi&quot;)  # &quot;  Hi, World!  &quot;
+split_text = text.split(&quot;,&quot;)  # [&quot;  Hello&quot;, &quot; World!  &quot;] (splits by delimiter)
+</code></pre>
+<h2>Control Flow</h2>
+<h3>Conditional Statements</h3>
+<pre><code class="language-python"># If-elif-else statement
+age = 18
+
+if age &lt; 13:
+    print(&quot;Child&quot;)
+elif age &lt; 18:
+    print(&quot;Teenager&quot;)
+else:
+    print(&quot;Adult&quot;)
+
+# One-line if statements
+message = &quot;Eligible&quot; if age &gt;= 18 else &quot;Not eligible&quot;
+</code></pre>
+<h3>Loops</h3>
+<pre><code class="language-python"># For loop
+for fruit in fruits:
+    print(fruit)
+
+# For loop with range
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(i)
+
+for i in range(1, 6):  # 1, 2, 3, 4, 5
+    print(i)
+
+for i in range(1, 10, 2):  # 1, 3, 5, 7, 9 (step of 2)
+    print(i)
+
+# While loop
+count = 0
+while count &lt; 5:
+    print(count)
+    count += 1
+
+# Loop control statements
+for i in range(10):
+    if i == 3:
+        continue  # Skip the rest of the current iteration
+    if i == 7:
+        break  # Exit the loop
+    print(i)
+</code></pre>
+<h3>Comprehensions</h3>
+<p>Comprehensions provide a concise way to create lists, dictionaries, and sets:</p>
+<pre><code class="language-python"># List comprehension
+squares = [x**2 for x in range(10)]  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# List comprehension with condition
+even_squares = [x**2 for x in range(10) if x % 2 == 0]  # [0, 4, 16, 36, 64]
+
+# Dictionary comprehension
+square_dict = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+# Set comprehension
+unique_values = {x % 3 for x in range(10)}  # {0, 1, 2}
+</code></pre>
+<h2>Functions</h2>
+<pre><code class="language-python"># Defining a function
+def greet(name):
+    &quot;&quot;&quot;This is a docstring: documentation for the function.&quot;&quot;&quot;
+    return f&quot;Hello, {name}!&quot;
+
+# Calling a function
+message = greet(&quot;John&quot;)  # &quot;Hello, John!&quot;
+
+# Default parameters
+def greet(name=&quot;Guest&quot;):
+    return f&quot;Hello, {name}!&quot;
+
+message = greet()  # &quot;Hello, Guest!&quot;
+
+# Multiple parameters
+def add(a, b):
+    return a + b
+
+sum = add(5, 3)  # 8
+
+# Variable number of arguments
+def sum_all(*args):
+    return sum(args)
+
+total = sum_all(1, 2, 3, 4)  # 10
+
+# Variable number of keyword arguments
+def person_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f&quot;{key}: {value}&quot;)
+
+person_info(name=&quot;John&quot;, age=30, city=&quot;New York&quot;)
+
+# Lambda functions (anonymous functions)
+square = lambda x: x**2
+result = square(5)  # 25
+
+# Function as argument
+def apply(func, value):
+    return func(value)
+
+result = apply(lambda x: x**2, 5)  # 25
+</code></pre>
+<h2>Object-Oriented Programming</h2>
+<h3>Classes and Objects</h3>
+<pre><code class="language-python"># Defining a class
+class Person:
+    # Class attribute (shared by all instances)
+    species = &quot;Homo sapiens&quot;
+    
+    # Constructor
+    def __init__(self, name, age):
+        # Instance attributes (unique to each instance)
+        self.name = name
+        self.age = age
+    
+    # Instance method
+    def greet(self):
+        return f&quot;Hello, my name is {self.name}&quot;
+    
+    # Method with parameters
+    def is_older_than(self, other_person):
+        return self.age &gt; other_person.age
+    
+    # Class method (works with class attributes)
+    @classmethod
+    def get_species(cls):
+        return cls.species
+    
+    # Static method (doesn't use class or instance attributes)
+    @staticmethod
+    def is_adult(age):
+        return age &gt;= 18
+
+# Creating objects (instances of a class)
+person1 = Person(&quot;Alice&quot;, 25)
+person2 = Person(&quot;Bob&quot;, 30)
+
+# Accessing attributes and methods
+name = person1.name  # &quot;Alice&quot;
+greeting = person1.greet()  # &quot;Hello, my name is Alice&quot;
+is_older = person2.is_older_than(person1)  # True
+species = Person.get_species()  # &quot;Homo sapiens&quot;
+is_adult = Person.is_adult(25)  # True
+</code></pre>
+<h3>Inheritance</h3>
+<pre><code class="language-python"># Base class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+# Derived class
+class Dog(Animal):
+    def speak(self):
+        return f&quot;{self.name} says Woof!&quot;
+
+class Cat(Animal):
+    def speak(self):
+        return f&quot;{self.name} says Meow!&quot;
+
+# Creating objects
+dog = Dog(&quot;Rex&quot;)
+cat = Cat(&quot;Whiskers&quot;)
+
+print(dog.speak())  # &quot;Rex says Woof!&quot;
+print(cat.speak())  # &quot;Whiskers says Meow!&quot;
+
+# Check if object is instance of a class
+isinstance(dog, Dog)    # True
+isinstance(dog, Animal) # True
+isinstance(dog, Cat)    # False
+</code></pre>
+<h3>Encapsulation and Access Modifiers</h3>
+<p>Python uses naming conventions for access control:</p>
+<pre><code class="language-python">class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner        # Public attribute
+        self._balance = balance   # Protected attribute (convention)
+        self.__id = 12345         # Private attribute (name mangling)
+    
+    def deposit(self, amount):
+        if amount &gt; 0:
+            self._balance += amount
+            return True
+        return False
+    
+    def withdraw(self, amount):
+        if 0 &lt; amount &lt;= self._balance:
+            self._balance -= amount
+            return True
+        return False
+    
+    def get_balance(self):
+        return self._balance
+
+account = BankAccount(&quot;John&quot;)
+account.deposit(1000)
+balance = account.get_balance()  # 1000
+# Accessing private attribute (not recommended)
+# print(account.__id)  # AttributeError
+print(account._BankAccount__id)  # 12345 (name mangling)
+</code></pre>
+<h2>Modules and Packages</h2>
+<h3>Importing Modules</h3>
+<pre><code class="language-python"># Importing an entire module
+import math
+result = math.sqrt(16)  # 4.0
+
+# Importing specific functions
+from math import sqrt, pi
+result = sqrt(16)  # 4.0
+
+# Importing with an alias
+import math as m
+result = m.sqrt(16)  # 4.0
+
+# Importing all functions (not recommended)
+from math import *
+result = sqrt(16)  # 4.0
+</code></pre>
+<h3>Creating and Using Modules</h3>
+<p><code>my_module.py</code>:</p>
+<pre><code class="language-python">def greet(name):
+    return f&quot;Hello, {name}!&quot;
+
+def add(a, b):
+    return a + b
+
+PI = 3.14159
+</code></pre>
+<p>Using the module:</p>
+<pre><code class="language-python">import my_module
+
+message = my_module.greet(&quot;John&quot;)  # &quot;Hello, John!&quot;
+sum_value = my_module.add(5, 3)    # 8
+</code></pre>
+<h3>Packages</h3>
+<p>A package is a directory containing multiple Python modules and a special <code>__init__.py</code> file.</p>
+<pre><code>my_package/
+    __init__.py
+    module1.py
+    module2.py
+    subpackage/
+        __init__.py
+        module3.py
+</code></pre>
+<p>Importing from packages:</p>
+<pre><code class="language-python"># Import a module from a package
+import my_package.module1
+
+# Import a function from a module in a package
+from my_package.module1 import function_name
+
+# Import a module from a subpackage
+import my_package.subpackage.module3
+</code></pre>
+<h2>File Handling</h2>
+<h3>Reading Files</h3>
+<pre><code class="language-python"># Basic file reading
+with open('file.txt', 'r') as file:
+    content = file.read()  # Read entire file
+    
+# Reading lines
+with open('file.txt', 'r') as file:
+    lines = file.readlines()  # List of lines with newline characters
+    
+# Reading line by line
+with open('file.txt', 'r') as file:
+    for line in file:
+        print(line.strip())  # Process each line
+</code></pre>
+<h3>Writing Files</h3>
+<pre><code class="language-python"># Writing to a file
+with open('output.txt', 'w') as file:
+    file.write(&quot;Hello, World!\n&quot;)
+    file.write(&quot;This is a new line.&quot;)
+
+# Appending to a file
+with open('output.txt', 'a') as file:
+    file.write(&quot;\nAppending another line.&quot;)
+</code></pre>
+<h3>Working with CSV Files</h3>
+<pre><code class="language-python">import csv
+
+# Reading CSV
+with open('data.csv', 'r') as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        print(row)  # List of values in the row
+
+# Reading CSV into dictionaries
+with open('data.csv', 'r') as file:
+    csv_reader = csv.DictReader(file)
+    for row in csv_reader:
+        print(row['name'], row['age'])  # Access by column name
+
+# Writing CSV
+data = [
+    ['Name', 'Age', 'City'],
+    ['John', '30', 'New York'],
+    ['Alice', '25', 'London']
+]
+
+with open('output.csv', 'w', newline='') as file:
+    csv_writer = csv.writer(file)
+    for row in data:
+        csv_writer.writerow(row)
+
+# Or write all at once
+with open('output.csv', 'w', newline='') as file:
+    csv_writer = csv.writer(file)
+    csv_writer.writerows(data)
+</code></pre>
+<h3>Working with JSON Files</h3>
+<pre><code class="language-python">import json
+
+# Reading JSON
+with open('data.json', 'r') as file:
+    data = json.load(file)  # Deserialize JSON to Python object
+
+# Writing JSON
+data = {
+    'name': 'John',
+    'age': 30,
+    'city': 'New York',
+    'languages': ['Python', 'JavaScript']
+}
+
+with open('output.json', 'w') as file:
+    json.dump(data, file, indent=4)  # Serialize Python object to JSON
+</code></pre>
+<h2>Exception Handling</h2>
+<pre><code class="language-python"># Basic try-except
+try:
+    number = int(input(&quot;Enter a number: &quot;))
+    result = 10 / number
+    print(f&quot;Result: {result}&quot;)
+except ValueError:
+    print(&quot;Invalid input. Please enter a valid number.&quot;)
+except ZeroDivisionError:
+    print(&quot;Cannot divide by zero.&quot;)
+
+# Handling multiple exceptions
+try:
+    # Code that might raise an exception
+    pass
+except (ValueError, TypeError) as e:
+    print(f&quot;Error: {e}&quot;)
+
+# try-except-else-finally
+try:
+    number = int(input(&quot;Enter a number: &quot;))
+    result = 10 / number
+except ValueError:
+    print(&quot;Invalid input.&quot;)
+except ZeroDivisionError:
+    print(&quot;Cannot divide by zero.&quot;)
+else:
+    # Executes if no exception occurred
+    print(f&quot;Result: {result}&quot;)
+finally:
+    # Always executes, regardless of exception
+    print(&quot;Execution completed.&quot;)
+
+# Raising exceptions
+def validate_age(age):
+    if age &lt; 0:
+        raise ValueError(&quot;Age cannot be negative&quot;)
+    if age &gt; 120:
+        raise ValueError(&quot;Age seems unrealistic&quot;)
+    return age
+
+# Custom exceptions
+class CustomError(Exception):
+    &quot;&quot;&quot;Base class for custom exceptions&quot;&quot;&quot;
+    pass
+
+class ValueTooSmallError(CustomError):
+    &quot;&quot;&quot;Raised when the value is too small&quot;&quot;&quot;
+    pass
+
+class ValueTooLargeError(CustomError):
+    &quot;&quot;&quot;Raised when the value is too large&quot;&quot;&quot;
+    pass
+</code></pre>
+<h2>Working with Dates and Times</h2>
+<pre><code class="language-python">from datetime import datetime, date, timedelta
+
+# Current date and time
+now = datetime.now()  # Current local datetime
+today = date.today()  # Current local date
+
+# Creating date and datetime objects
+specific_date = date(2023, 1, 15)  # January 15, 2023
+specific_time = datetime(2023, 1, 15, 14, 30, 0)  # 2:30 PM on January 15, 2023
+
+# Formatting dates and times
+formatted_date = now.strftime(&quot;%Y-%m-%d&quot;)  # e.g., &quot;2023-01-15&quot;
+formatted_time = now.strftime(&quot;%H:%M:%S&quot;)  # e.g., &quot;14:30:00&quot;
+formatted_datetime = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)  # e.g., &quot;2023-01-15 14:30:00&quot;
+
+# Parsing datetime from string
+date_string = &quot;2023-01-15 14:30:00&quot;
+parsed_datetime = datetime.strptime(date_string, &quot;%Y-%m-%d %H:%M:%S&quot;)
+
+# Date arithmetic
+tomorrow = today + timedelta(days=1)
+next_week = today + timedelta(weeks=1)
+two_hours_later = now + timedelta(hours=2)
+
+# Date comparison
+is_future = specific_date &gt; today
+is_past = specific_date &lt; today
+</code></pre>
+<h2>Regular Expressions</h2>
+<pre><code class="language-python">import re
+
+# Matching patterns
+text = &quot;My phone number is 123-456-7890&quot;
+pattern = r&quot;\d{3}-\d{3}-\d{4}&quot;
+match = re.search(pattern, text)
+
+if match:
+    phone_number = match.group()  # &quot;123-456-7890&quot;
+
+# Finding all matches
+text = &quot;Call me at 123-456-7890 or 987-654-3210&quot;
+pattern = r&quot;\d{3}-\d{3}-\d{4}&quot;
+matches = re.findall(pattern, text)  # [&quot;123-456-7890&quot;, &quot;987-654-3210&quot;]
+
+# Replacing patterns
+text = &quot;My phone number is 123-456-7890&quot;
+pattern = r&quot;(\d{3})-(\d{3})-(\d{4})&quot;
+formatted = re.sub(pattern, r&quot;(\1) \2-\3&quot;, text)  # &quot;My phone number is (123) 456-7890&quot;
+
+# Splitting text
+text = &quot;apple,banana;orange,grape;pear&quot;
+pattern = r&quot;[,;]&quot;  # Split on comma or semicolon
+fruits = re.split(pattern, text)  # [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;pear&quot;]
+</code></pre>
+<h2>Functional Programming</h2>
+<p>Python supports functional programming with tools like <code>map()</code>, <code>filter()</code>, and <code>reduce()</code>:</p>
+<pre><code class="language-python"># map(): Apply function to each item in an iterable
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25]
+
+# filter(): Filter items based on a function
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))  # [2, 4, 6]
+
+# reduce(): Apply function cumulatively to items
+from functools import reduce
+numbers = [1, 2, 3, 4, 5]
+sum_all = reduce(lambda x, y: x + y, numbers)  # 15
+</code></pre>
+<h2>Decorators</h2>
+<p>Decorators modify or enhance functions without changing their code:</p>
+<pre><code class="language-python"># Simple decorator
+def my_decorator(func):
+    def wrapper():
+        print(&quot;Something is happening before the function is called.&quot;)
+        func()
+        print(&quot;Something is happening after the function is called.&quot;)
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print(&quot;Hello!&quot;)
+
+say_hello()
+# Output:
+# Something is happening before the function is called.
+# Hello!
+# Something is happening after the function is called.
+
+# Decorator with arguments
+def repeat(n):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(n):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator
+
+@repeat(3)
+def greet(name):
+    print(f&quot;Hello, {name}!&quot;)
+
+greet(&quot;John&quot;)
+# Output:
+# Hello, John!
+# Hello, John!
+# Hello, John!
+</code></pre>
+<h2>Generators</h2>
+<p>Generators are functions that can be paused and resumed, yielding values one at a time:</p>
+<pre><code class="language-python"># Simple generator function
+def count_up_to(n):
+    i = 1
+    while i &lt;= n:
+        yield i
+        i += 1
+
+# Using the generator
+counter = count_up_to(5)
+print(next(counter))  # 1
+print(next(counter))  # 2
+
+# Looping through all values
+for num in count_up_to(5):
+    print(num)  # 1, 2, 3, A, 5
+
+# Generator expressions
+squares = (x**2 for x in range(5))  # Generator expression, similar to list comprehension
+for square in squares:
+    print(square)  # 0, 1, 4, 9, 16
+</code></pre>
+<h2>Context Managers</h2>
+<p>Context managers handle setup and teardown actions around a block of code:</p>
+<pre><code class="language-python"># Using a context manager for file operations
+with open('file.txt', 'r') as file:
+    data = file.read()
+# File is automatically closed after the with block
+
+# Creating a context manager using a class
+class OpenFile:
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
+        
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+        
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.file.close()
+
+# Using the custom context manager
+with OpenFile('file.txt', 'r') as file:
+    data = file.read()
+
+# Creating a context manager using a generator
+from contextlib import contextmanager
+
+@contextmanager
+def open_file(filename, mode):
+    file = open(filename, mode)
+    try:
+        yield file
+    finally:
+        file.close()
+
+# Using the generator-based context manager
+with open_file('file.txt', 'r') as file:
+    data = file.read()
+</code></pre>
+<h2>Python Standard Library Highlights</h2>
+<p>Python comes with a rich standard library offering modules for various tasks:</p>
+<pre><code class="language-python"># os: Operating system interface
+import os
+files = os.listdir('.')  # List files in current directory
+os.mkdir('new_directory')  # Create directory
+path = os.path.join('folder', 'file.txt')  # Create path string
+
+# sys: System-specific parameters and functions
+import sys
+args = sys.argv  # Command line arguments
+sys.exit(0)  # Exit program
+
+# random: Generate random numbers
+import random
+num = random.randint(1, 10)  # Random integer between 1 and 10
+choice = random.choice(['apple', 'banana', 'cherry'])  # Random selection
+random.shuffle(my_list)  # Shuffle list in place
+
+# collections: Specialized container datatypes
+from collections import Counter, defaultdict, namedtuple
+word_counts = Counter(['apple', 'orange', 'apple', 'banana', 'apple'])
+default_dict = defaultdict(int)  # Default value for missing keys is 0
+Point = namedtuple('Point', ['x', 'y'])  # Create a named tuple class
+
+# itertools: Functions for efficient looping
+import itertools
+permutations = list(itertools.permutations([1, 2, 3]))
+combinations = list(itertools.combinations([1, 2, 3, 4], 2))
+repeated = list(itertools.repeat(10, 3))  # [10, 10, 10]
+
+# functools: Higher-order functions and operations on callable objects
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fibonacci(n):
+    if n &lt; 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# datetime: Date and time handling
+from datetime import datetime, timedelta
+now = datetime.now()
+one_week_ago = now - timedelta(days=7)
+
+# math: Mathematical functions
+import math
+sine = math.sin(math.pi / 2)  # 1.0
+log = math.log(100, 10)  # 2.0
+sqrt = math.sqrt(16)  # 4.0
+
+# json: JSON encoding and decoding
+import json
+data_string = json.dumps({&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30})
+data_object = json.loads(data_string)
+
+# urllib: URL handling
+from urllib.request import urlopen
+with urlopen('https://api.example.com/data') as response:
+    data = response.read()
+
+# re: Regular expressions
+import re
+matches = re.finditer(r'\d+', 'Numbers: 10, 20, 30')
+
+# unittest: Unit testing framework
+import unittest
+
+class TestStringMethods(unittest.TestCase):
+    def test_upper(self):
+        self.assertEqual('hello'.upper(), 'HELLO')
+    
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h2>Popular Third-Party Libraries</h2>
+<p>Python has a vast ecosystem of third-party libraries for various domains:</p>
+<h3>Data Science and Machine Learning</h3>
+<ul>
+<li><strong>NumPy</strong>: Numerical computing with powerful array objects</li>
+<li><strong>pandas</strong>: Data analysis and manipulation</li>
+<li><strong>matplotlib</strong> and <strong>seaborn</strong>: Data visualization</li>
+<li><strong>scikit-learn</strong>: Machine learning algorithms</li>
+<li><strong>TensorFlow</strong> and <strong>PyTorch</strong>: Deep learning frameworks</li>
+</ul>
+<h3>Web Development</h3>
+<ul>
+<li><strong>Django</strong>: Full-featured web framework</li>
+<li><strong>Flask</strong>: Lightweight web framework</li>
+<li><strong>FastAPI</strong>: Modern, fast web framework</li>
+<li><strong>Requests</strong>: HTTP requests made easy</li>
+</ul>
+<h3>Automation and Scripting</h3>
+<ul>
+<li><strong>Selenium</strong>: Browser automation</li>
+<li><strong>Beautiful Soup</strong>: HTML and XML parsing</li>
+<li><strong>PyAutoGUI</strong>: GUI automation</li>
+<li><strong>Scrapy</strong>: Web scraping framework</li>
+</ul>
+<h3>GUI Development</h3>
+<ul>
+<li><strong>Tkinter</strong>: Standard GUI toolkit</li>
+<li><strong>PyQt</strong> and <strong>PySide</strong>: Qt framework bindings</li>
+<li><strong>Kivy</strong>: Cross-platform GUI framework</li>
+</ul>
+<h3>Database Access</h3>
+<ul>
+<li><strong>SQLAlchemy</strong>: SQL toolkit and ORM</li>
+<li><strong>psycopg2</strong>: PostgreSQL adapter</li>
+<li><strong>pymongo</strong>: MongoDB driver</li>
+</ul>
+<h2>Python Development Tools</h2>
+<h3>Virtual Environments</h3>
+<p>Python virtual environments isolate project dependencies:</p>
+<pre><code class="language-bash"># Creating a virtual environment
+python -m venv myenv
+
+# Activating the virtual environment
+# On Windows:
+myenv\Scripts\activate
+# On macOS/Linux:
+source myenv/bin/activate
+
+# Installing packages
+pip install package_name
+
+# Listing installed packages
+pip list
+
+# Freezing requirements
+pip freeze &gt; requirements.txt
+
+# Installing from requirements
+pip install -r requirements.txt
+
+# Deactivating virtual environment
+deactivate
+</code></pre>
+<h3>Package Management</h3>
+<p><strong>pip</strong> is the standard package installer for Python:</p>
+<pre><code class="language-bash"># Installing packages
+pip install package_name
+
+# Installing specific version
+pip install package_name==1.2.3
+
+# Upgrading packages
+pip install --upgrade package_name
+
+# Uninstalling packages
+pip uninstall package_name
+</code></pre>
+<h3>Linting and Formatting</h3>
+<p>Tools to maintain code quality:</p>
+<ul>
+<li><strong>pylint</strong>: Static code analyzer</li>
+<li><strong>flake8</strong>: Style guide enforcement</li>
+<li><strong>black</strong>: Code formatter</li>
+<li><strong>isort</strong>: Import sorter</li>
+</ul>
+<h3>Testing</h3>
+<p>Frameworks for testing Python code:</p>
+<ul>
+<li><strong>unittest</strong>: Standard library testing framework</li>
+<li><strong>pytest</strong>: Feature-rich testing framework</li>
+<li><strong>nose2</strong>: Test runner</li>
+</ul>
+<h3>IDEs and Code Editors</h3>
+<p>Popular environments for Python development:</p>
+<ul>
+<li><strong>Visual Studio Code</strong>: Lightweight, extensible editor</li>
+<li><strong>PyCharm</strong>: Full-featured Python IDE</li>
+<li><strong>Jupyter Notebook</strong>: Interactive computing</li>
+<li><strong>Spyder</strong>: Scientific computing IDE</li>
+</ul>
+<h2>Python Best Practices</h2>
+<ol>
+<li><strong>Follow PEP 8</strong> - the official Python style guide</li>
+<li><strong>Use meaningful variable and function names</strong></li>
+<li><strong>Write docstrings</strong> for modules, classes, and functions</li>
+<li><strong>Handle exceptions</strong> properly</li>
+<li><strong>Use virtual environments</strong> for project isolation</li>
+<li><strong>Test your code</strong> with automated tests</li>
+<li><strong>Keep functions small and focused</strong> on a single task</li>
+<li><strong>Use list comprehensions</strong> when appropriate for readability</li>
+<li><strong>Avoid global variables</strong></li>
+<li><strong>Use context managers</strong> (with statements) for resource management</li>
+<li><strong>Remember that readability counts</strong> - clear is better than clever</li>
+<li><strong>Follow the principle of &quot;Explicit is better than implicit&quot;</strong></li>
+</ol>
+<h2>Next Steps in Python Learning</h2>
+<ol>
+<li><strong>Practice with small projects</strong> - solve real problems</li>
+<li><strong>Learn version control</strong> with Git</li>
+<li><strong>Explore libraries</strong> relevant to your interests</li>
+<li><strong>Contribute to open-source projects</strong></li>
+<li><strong>Join Python communities</strong> (like Python Discord, Reddit r/learnpython)</li>
+<li><strong>Attend Python meetups or conferences</strong></li>
+<li><strong>Read code written by experienced Python developers</strong></li>
+<li><strong>Teach others</strong> to solidify your understanding</li>
+</ol>
+<p>Python's simplicity, readability, and vast ecosystem make it an excellent choice for beginners and experts alike. Whether you're building web applications, analyzing data, automating tasks, or exploring artificial intelligence, Python provides powerful tools to accomplish your goals.</p>
+
+            </div>
+        </main>
+        <footer>
+            <p>Made by Lsbn - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>
