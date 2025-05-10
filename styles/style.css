@@ -53,15 +53,15 @@ nav ul {
     padding: 0;
 }
 
-.link {
+.link, a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.link:hover,
-.link:focus {
+.link:hover, a:hover,
+.link:focus, a:focus {
     color: var(--accent-color);
     text-decoration: underline;
 }
